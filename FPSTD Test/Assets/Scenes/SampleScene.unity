@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2770,7 +2770,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1218314823}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 1.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1481353818}
@@ -3280,12 +3280,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311f828ecc59d834dac97584dbc666e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lenght: 5
+  lenght: 7
+  wallHeight: 0.5
   layer:
     serializedVersion: 2
     m_Bits: 512
   _newMat: {fileID: 2100000, guid: d1b3a7a66821be54992cbda7a25f8247, type: 2}
   _oldMat: {fileID: 2100000, guid: eaed43e34a17b1b4e90dece2cb682d81, type: 2}
+  hoverWall: {fileID: 1816300936688662, guid: 395cdca86b507a3469d93a1583e250f0, type: 2}
 --- !u!1001 &1484801911
 Prefab:
   m_ObjectHideFlags: 0

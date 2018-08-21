@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class WallShooter : MonoBehaviour {
 
-	[SerializeField] private int lenght;
+	[SerializeField] private float lenght = 7;
+	[SerializeField] float wallHeight;
 	[SerializeField] private LayerMask layer;
 	[SerializeField] private Material _newMat;
 	[SerializeField] private Material _oldMat;
-	GameObject tile;
+	[SerializeField] private GameObject hoverWall;
+	private GameObject tile;
+	private GameObject _hoverWall;
+
+	void Awake(){
+		_hoverWall = Instantiate (hoverWall);
+		_hoverWall.transform.position = (new Vector3 (1000,1000,1000));
+	}
 
 	void Update(){
 		RaycastHit hit;
@@ -26,11 +34,13 @@ public class WallShooter : MonoBehaviour {
 				}
 				tile = hit.collider.gameObject;
 				tile.GetComponent<Renderer> ().material = _newMat;
+				_hoverWall.transform.position = tile.transform.position+(new Vector3(0.0f,wallHeight,0.0f));
 			}
 		} else {
 			if (tile != null) {
 				tile.GetComponent<Renderer> ().material = _oldMat;
 				tile = null;
+				_hoverWall.transform.position = (new Vector3 (1000,1000,1000));
 			}
 		}
 	}

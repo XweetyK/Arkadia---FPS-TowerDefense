@@ -7,8 +7,7 @@ public class WallSpawn : MonoBehaviour {
 	[SerializeField] private GameObject wall;
 	[SerializeField] float wallHeight;
 	private bool _isActive;
-	[SerializeField] public Material _mat;
-	GameObject _wall;
+	private GameObject _wall;
 
 	void Awake(){
 		_isActive = false;
