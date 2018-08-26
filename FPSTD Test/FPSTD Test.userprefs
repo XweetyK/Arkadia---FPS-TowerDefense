@@ -1,11 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\WallShooter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\WallsManager.cs">
     <Files>
-      <File FileName="Assets\WallClass.cs" Line="5" Column="41" />
-      <File FileName="Assets\WallsManager.cs" Line="29" Column="3" />
-      <File FileName="Assets\WallSpawn.cs" Line="18" Column="1" NotebookId="1" />
-      <File FileName="Assets\WallShooter.cs" Line="31" Column="4" NotebookId="1" />
+      <File FileName="Assets\WallClass.cs" Line="13" Column="16" />
+      <File FileName="Assets\WallsManager.cs" Line="16" Column="41" />
+      <File FileName="Assets\WallSpawn.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets\WallShooter.cs" Line="39" Column="55" NotebookId="1" />
+      <File FileName="Assets\TileManager.cs" Line="6" Column="36" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

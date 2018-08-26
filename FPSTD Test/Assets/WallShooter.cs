@@ -12,6 +12,7 @@ public class WallShooter : MonoBehaviour {
 	[SerializeField] private GameObject hoverWall;
 	[SerializeField] private GameObject managerPrefab;
 	private GameObject tile;
+	private GameObject _wall;
 	private GameObject _hoverWall;
 	WallsManager _manager;
 
@@ -24,12 +25,21 @@ public class WallShooter : MonoBehaviour {
 	void Update(){
 		RaycastHit hit;
 		if (Physics.Raycast (transform.position, transform.forward, out hit, lenght, layer)) {
-			Transform _wall = hit.collider.GetComponent<Transform> ();
+			GameObject _tile = hit.transform.gameObject;
 			if (Input.GetButtonDown ("Fire1")) {
-				_manager.FreeCheck ().transform.position = _wall.position+(new Vector3(0,wallHeight,0));
+				if (_manager.freeWallCount > 0) {
+					if (_tile.GetComponent<TileManager> ().SavedWall == null) {
+						_wall = _manager.FreeCheck ();
+						_tile.GetComponent<TileManager> ().SavedWall = _wall;
+						_wall.transform.position = _tile.transform.position + (new Vector3 (0, wallHeight, 0));
+					}
+				}
 			}
 			if (Input.GetButtonDown ("Fire2")) {
-				
+				if (_tile.GetComponent<TileManager> ().SavedWall != null) {
+					_manager.ReturnWall (_tile.GetComponent<TileManager> ().SavedWall);
+					_tile.GetComponent<TileManager> ().SavedWall = null;
+				}
 			}
 			if (tile != hit.collider.gameObject) {
 				if (tile != null) {
