@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2315,8 +2315,7 @@ Prefab:
       propertyPath: m_Name
       value: Tile (21)
       objectReference: {fileID: 0}
-    - target: {fileID: 114126153643340500, guid: 5a0e82f31c5cd184aa4667cc32283107,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: isActive
       value: 0
       objectReference: {fileID: 0}
@@ -3288,6 +3287,7 @@ MonoBehaviour:
   _newMat: {fileID: 2100000, guid: d1b3a7a66821be54992cbda7a25f8247, type: 2}
   _oldMat: {fileID: 2100000, guid: eaed43e34a17b1b4e90dece2cb682d81, type: 2}
   hoverWall: {fileID: 1816300936688662, guid: 395cdca86b507a3469d93a1583e250f0, type: 2}
+  managerPrefab: {fileID: 1812156626}
 --- !u!1001 &1484801911
 Prefab:
   m_ObjectHideFlags: 0
@@ -3985,6 +3985,49 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4750899848015708, guid: 5a0e82f31c5cd184aa4667cc32283107,
     type: 2}
   m_PrefabInternal: {fileID: 1728777033}
+--- !u!1 &1812156626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1812156628}
+  - component: {fileID: 1812156627}
+  m_Layer: 0
+  m_Name: WallManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1812156627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1812156626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dde7fb05fcef2d40a1b9fe2c15195c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallsCant: 10
+  wallHeight: 0
+  wallPrefab: {fileID: 1816300936688662, guid: b02a01bcf5ab59b48b90bb015d6c85b1, type: 2}
+--- !u!4 &1812156628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1812156626}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5862315, y: 3.377972, z: 1.3568797}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1838694160
 Prefab:
   m_ObjectHideFlags: 0

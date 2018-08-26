@@ -10,23 +10,26 @@ public class WallShooter : MonoBehaviour {
 	[SerializeField] private Material _newMat;
 	[SerializeField] private Material _oldMat;
 	[SerializeField] private GameObject hoverWall;
+	[SerializeField] private GameObject managerPrefab;
 	private GameObject tile;
 	private GameObject _hoverWall;
+	WallsManager _manager;
 
 	void Awake(){
 		_hoverWall = Instantiate (hoverWall);
 		_hoverWall.transform.position = (new Vector3 (1000,1000,1000));
+		_manager = managerPrefab.GetComponent<WallsManager> ();
 	}
 
 	void Update(){
 		RaycastHit hit;
 		if (Physics.Raycast (transform.position, transform.forward, out hit, lenght, layer)) {
-			WallSpawn _wall = hit.collider.GetComponent<WallSpawn> ();
+			Transform _wall = hit.collider.GetComponent<Transform> ();
 			if (Input.GetButtonDown ("Fire1")) {
-				_wall.IsActive = true;
+				_manager.FreeCheck ().transform.position = _wall.position+(new Vector3(0,wallHeight,0));
 			}
 			if (Input.GetButtonDown ("Fire2")) {
-				_wall.IsActive = false;
+				
 			}
 			if (tile != hit.collider.gameObject) {
 				if (tile != null) {
