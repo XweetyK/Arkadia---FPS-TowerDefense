@@ -5,7 +5,7 @@ using UnityEngine;
 public class WallsManager : MonoBehaviour {
 
 	[SerializeField] private int wallsCant;
-	[SerializeField] private float wallHeight;
+	[SerializeField] private float wallHeight=0.5f;
 	[SerializeField] private GameObject wallPrefab;
 	private GameObject[] walls;
 	private int _freeWallCount;

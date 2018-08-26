@@ -10,16 +10,23 @@ public class WallShooter : MonoBehaviour {
 	[SerializeField] private Material _newMat;
 	[SerializeField] private Material _oldMat;
 	[SerializeField] private GameObject hoverWall;
+	[SerializeField] private GameObject hoverFalse;
 	[SerializeField] private GameObject managerPrefab;
+	[SerializeField] private GameObject enemyPrefab;
 	private GameObject tile;
 	private GameObject _wall;
 	private GameObject _hoverWall;
+	private GameObject _hoverFalse;
 	WallsManager _manager;
+	EnemyWalker _enemy;
 
 	void Awake(){
 		_hoverWall = Instantiate (hoverWall);
 		_hoverWall.transform.position = (new Vector3 (1000,1000,1000));
+		_hoverFalse = Instantiate (hoverFalse);
+		_hoverFalse.transform.position = (new Vector3 (1000,1020,1000));
 		_manager = managerPrefab.GetComponent<WallsManager> ();
+		_enemy = enemyPrefab.GetComponent<EnemyWalker> ();
 	}
 
 	void Update(){
@@ -41,19 +48,27 @@ public class WallShooter : MonoBehaviour {
 					_tile.GetComponent<TileManager> ().SavedWall = null;
 				}
 			}
+			if (Input.GetButtonDown ("Jump")) {
+				_enemy.Walk ();
+			}
 			if (tile != hit.collider.gameObject) {
 				if (tile != null) {
 					tile.GetComponent<Renderer> ().material = _oldMat;
 				}
 				tile = hit.collider.gameObject;
 				tile.GetComponent<Renderer> ().material = _newMat;
-				_hoverWall.transform.position = tile.transform.position+(new Vector3(0.0f,wallHeight,0.0f));
+				if (_manager.freeWallCount != 0) {
+					_hoverWall.transform.position = tile.transform.position + (new Vector3 (0.0f, wallHeight, 0.0f));
+				} else {
+					_hoverFalse.transform.position = tile.transform.position + (new Vector3 (0.0f, wallHeight, 0.0f));
+				}
 			}
 		} else {
 			if (tile != null) {
 				tile.GetComponent<Renderer> ().material = _oldMat;
 				tile = null;
 				_hoverWall.transform.position = (new Vector3 (1000,1000,1000));
+				_hoverFalse.transform.position = (new Vector3 (1000,1000,1000));
 			}
 		}
 	}
