@@ -53,13 +53,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\EnemyWalker.cs" />
-     <Compile Include="Assets\Movement.cs" />
-     <Compile Include="Assets\TileManager.cs" />
-     <Compile Include="Assets\WallClass.cs" />
-     <Compile Include="Assets\WallShooter.cs" />
-     <Compile Include="Assets\WallsManager.cs" />
-     <Compile Include="Assets\WallSpawn.cs" />
+     <Compile Include="Assets\Scripts\EnemyWalker.cs" />
+     <Compile Include="Assets\Scripts\Movement.cs" />
+     <Compile Include="Assets\Scripts\TileManager.cs" />
+     <Compile Include="Assets\Scripts\WallClass.cs" />
+     <Compile Include="Assets\Scripts\WallShooter.cs" />
+     <Compile Include="Assets\Scripts\WallsManager.cs" />
+     <Compile Include="Assets\Scripts\WallSpawn.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/Diana/Desktop/Unity/FPS-TowerDefense/FPSTD Test/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>

@@ -59,8 +59,10 @@ public class WallShooter : MonoBehaviour {
 				tile.GetComponent<Renderer> ().material = _newMat;
 				if (_manager.freeWallCount != 0) {
 					_hoverWall.transform.position = tile.transform.position + (new Vector3 (0.0f, wallHeight, 0.0f));
+					_hoverFalse.transform.position = (new Vector3 (1000,1000,1000));
 				} else {
 					_hoverFalse.transform.position = tile.transform.position + (new Vector3 (0.0f, wallHeight, 0.0f));
+					_hoverWall.transform.position = (new Vector3 (1000,1000,1000));
 				}
 			}
 		} else {
