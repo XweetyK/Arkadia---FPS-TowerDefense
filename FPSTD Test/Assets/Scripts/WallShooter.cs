@@ -48,9 +48,6 @@ public class WallShooter : MonoBehaviour {
 					_tile.GetComponent<TileManager> ().SavedWall = null;
 				}
 			}
-			if (Input.GetButtonDown ("Jump")) {
-				_enemy.Walk ();
-			}
 			if (tile != hit.collider.gameObject) {
 				if (tile != null) {
 					tile.GetComponent<Renderer> ().material = _oldMat;
@@ -72,6 +69,9 @@ public class WallShooter : MonoBehaviour {
 				_hoverWall.transform.position = (new Vector3 (1000,1000,1000));
 				_hoverFalse.transform.position = (new Vector3 (1000,1000,1000));
 			}
+		}
+		if (Input.GetButtonDown ("Jump")) {
+			_enemy.Walk ();
 		}
 	}
 	void OnDrawGizmos(){
