@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour {
 
 	[SerializeField] private float vel=8;
 	[SerializeField] private float spe=80;
 	[SerializeField] private GameObject gmManagerPref;
+	[SerializeField] private RawImage UI;
 	[SerializeField] private GameObject[] _base;
 	GameModeManager _gmManager;
 	float transX;
@@ -53,6 +55,9 @@ public class Movement : MonoBehaviour {
 				transform.position = (new Vector3 (0.0f, 1.5f, 0.0f));
 			}
 			break;
+		}
+		if (Input.GetButtonDown ("Map")) {
+			UI.GetComponent<RawImage> ().enabled= (!UI.GetComponent<RawImage> ().IsActive());
 		}
 	}
 }
