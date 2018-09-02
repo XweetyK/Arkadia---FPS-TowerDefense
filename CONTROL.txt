@@ -1,0 +1,5 @@
+Movement: W A S D // ARROWS
+GameMode Switch: SPACE
+Minimap: M
+WallSpawn: LEFT CLICK // RIGHT CLICK
+TowerSwitch: LEFT SHIFT // MID CLICK

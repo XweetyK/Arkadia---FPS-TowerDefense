@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\EnemyWalker.cs" />
      <Compile Include="Assets\Scripts\GameModeManager.cs" />
+     <Compile Include="Assets\Scripts\HUDManager.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />
      <Compile Include="Assets\Scripts\SpinningCube.cs" />
      <Compile Include="Assets\Scripts\TileManager.cs" />
