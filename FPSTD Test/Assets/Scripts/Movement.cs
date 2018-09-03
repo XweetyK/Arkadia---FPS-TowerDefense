@@ -50,6 +50,7 @@ public class Movement : MonoBehaviour {
 					cont = 0;
 				}
 			}
+
 			if (Input.GetButtonDown ("Jump")) {
 				_gmManager.GameMode = GameModeManager.GAMEMODE.WALLBUILDER;
 				transform.position = (new Vector3 (0.0f, 1.5f, 0.0f));
