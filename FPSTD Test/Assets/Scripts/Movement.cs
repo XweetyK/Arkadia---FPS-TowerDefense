@@ -19,7 +19,8 @@ public class Movement : MonoBehaviour {
 	RaycastHit info;
 
 	void Start(){
-		Screen.lockCursor = true;
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 		_gmManager = gmManagerPref.GetComponent<GameModeManager> ();
 		cont = 0;
 	}
