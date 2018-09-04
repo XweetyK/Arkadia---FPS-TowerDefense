@@ -18,8 +18,8 @@ public class WallShooter : MonoBehaviour {
 	private GameObject _wall;
 	private GameObject _hoverWall;
 	private GameObject _hoverFalse;
+	private bool tiled;
 	WallsManager _manager;
-	EnemyWalker _enemy;
 
 	void Awake(){
 		_hoverWall = Instantiate (hoverWall);
@@ -27,10 +27,10 @@ public class WallShooter : MonoBehaviour {
 		_hoverFalse = Instantiate (hoverFalse);
 		_hoverFalse.transform.position = (new Vector3 (1000,1020,1000));
 		_manager = managerPrefab.GetComponent<WallsManager> ();
-		_enemy = enemyPrefab.GetComponent<EnemyWalker> ();
 	}
 
 	void Update(){
+		tiled = false;
 		if (_GMmanager.GameMode == GameModeManager.GAMEMODE.WALLBUILDER) {
 			RaycastHit hit;
 			if (Physics.Raycast (transform.position, transform.forward, out hit, lenght, layer)) {
@@ -72,9 +72,16 @@ public class WallShooter : MonoBehaviour {
 					_hoverFalse.transform.position = (new Vector3 (1000, 1000, 1000));
 				}
 			}
-			/*if (Input.GetButtonDown ("Jump")) {
-				_enemy.Walk ();
-			}*/
+		}
+		if (_GMmanager.GameMode == GameModeManager.GAMEMODE.DESTROYER) {
+			if (tiled == false) {
+				if (tile != null) {
+					tile.GetComponent<Renderer> ().material = _oldMat;
+				}
+				_hoverWall.transform.position = (new Vector3 (1000, 1000, 1000));
+				_hoverFalse.transform.position = (new Vector3 (1000, 1000, 1000));
+				tiled = true;
+			}
 		}
 	}
 	void OnDrawGizmos(){
