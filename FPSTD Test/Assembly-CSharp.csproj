@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Enemy\EnemyShooter.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyWalker.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyWaveSpawner.cs" />
+     <Compile Include="Assets\Scripts\Enemy\HealthBar.cs" />
      <Compile Include="Assets\Scripts\Managers\BaseManager.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\GameModeManager.cs" />
@@ -67,6 +68,7 @@
      <Compile Include="Assets\Scripts\Managers\TileManager.cs" />
      <Compile Include="Assets\Scripts\Managers\TurretMov.cs" />
      <Compile Include="Assets\Scripts\Managers\TurretShooter.cs" />
+     <Compile Include="Assets\Scripts\Managers\UIRotation.cs" />
      <Compile Include="Assets\Scripts\Managers\WallClass.cs" />
      <Compile Include="Assets\Scripts\Managers\WallsManager.cs" />
      <Compile Include="Assets\Scripts\Managers\WallSpawn.cs" />

@@ -1,10 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\TurretShooter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\UIRotation.cs">
     <Files>
-      <File FileName="Assets\Scripts\Managers\TurretShooter.cs" Line="36" Column="22" />
-      <File FileName="Assets\Scripts\Managers\TurretMov.cs" Line="28" Column="21" />
+      <File FileName="Assets\Scripts\Managers\TurretShooter.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\TurretMov.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Enemy\HealthBar.cs" Line="8" Column="38" />
+      <File FileName="Assets\Scripts\Enemy\EnemyShooter.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\UIRotation.cs" Line="14" Column="35" />
       <File FileName="Assets\Scripts\Managers\WallClass.cs" Line="16" Column="28" NotebookId="1" />
+      <File FileName="Assets\Scripts\Managers\Life.cs" Line="1" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
