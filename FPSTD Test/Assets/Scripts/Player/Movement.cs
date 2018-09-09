@@ -7,10 +7,9 @@ public class Movement : MonoBehaviour {
 
 	[SerializeField] private float vel=8;
 	[SerializeField] private float spe=80;
-	[SerializeField] private GameObject gmManagerPref;
+	[SerializeField] private GameModeManager _gmManager;
 	[SerializeField] private RawImage UI;
 	[SerializeField] private GameObject[] _base;
-	GameModeManager _gmManager;
 	float transX;
 	float transZ;
 	float rotX;
@@ -21,7 +20,6 @@ public class Movement : MonoBehaviour {
 	void Start(){
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
-		_gmManager = gmManagerPref.GetComponent<GameModeManager> ();
 		cont = 0;
 	}
 	void Update () {
@@ -34,9 +32,6 @@ public class Movement : MonoBehaviour {
 			transform.GetChild (0).Rotate (-rotX, 0, 0);
 			transform.Translate (transX, 0, transZ);
 			transform.Rotate (0, rotY, 0);
-			if (Input.GetButtonDown("Jump")) {
-				_gmManager.GameMode = GameModeManager.GAMEMODE.DESTROYER;
-			}
 			break;
 		case GameModeManager.GAMEMODE.DESTROYER:
 			rotX = Input.GetAxis ("Mouse Y") * spe * Time.deltaTime;
@@ -50,11 +45,6 @@ public class Movement : MonoBehaviour {
 				} else {
 					cont = 0;
 				}
-			}
-
-			if (Input.GetButtonDown ("Jump")) {
-				_gmManager.GameMode = GameModeManager.GAMEMODE.WALLBUILDER;
-				transform.position = (new Vector3 (0.0f, 1.5f, 0.0f));
 			}
 			break;
 		}

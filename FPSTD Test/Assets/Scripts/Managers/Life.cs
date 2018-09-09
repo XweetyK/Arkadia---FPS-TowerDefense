@@ -17,6 +17,5 @@ public class Life : MonoBehaviour {
 	}
 	public void Damager(int damage){
 		_life -= damage;
-		Debug.Log ("yep");
 	}
 }

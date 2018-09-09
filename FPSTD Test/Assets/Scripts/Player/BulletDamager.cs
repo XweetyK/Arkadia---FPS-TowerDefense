@@ -7,14 +7,11 @@ public class BulletDamager : MonoBehaviour {
 	[SerializeField] private LayerMask _layer;
 	[SerializeField] private int damage;
 
-	void OnTriggerEnter(Collider enemy){
-		Debug.Log ("layer: " + (1 << enemy.gameObject.layer));
-		Debug.Log ("_layer: " + (int)_layer);
-
-
+	void OnCollisionEnter(Collision enemy){
 		if ((1 << enemy.gameObject.layer) == (int)_layer) {
 			enemy.gameObject.GetComponent<Life> ().Damager (damage);
-			Debug.Log ("yip");
+			Destroy (gameObject);
+		} else {
 			Destroy (gameObject);
 		}
 	}
