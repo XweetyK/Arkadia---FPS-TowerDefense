@@ -28,7 +28,7 @@ public class EnemyWaveSpawner : MonoBehaviour {
 		}
 	}
 	void Update(){
-		if (_actualWave >= 0) {
+		if (_actualWave >= 0 && _actualWave < _enemyWave.Length) {
 			_waveChecker = 0;
 			for (int i = 0; i < _enemyWave[_actualWave].Length; i++) {
 				if (_enemyWave [_actualWave] [i] == null) {
