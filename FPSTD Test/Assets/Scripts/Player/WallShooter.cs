@@ -12,7 +12,6 @@ public class WallShooter : MonoBehaviour {
 	[SerializeField] private GameObject hoverWall;
 	[SerializeField] private GameObject hoverFalse;
 	[SerializeField] private GameObject managerPrefab;
-	[SerializeField] private GameObject enemyPrefab;
 	[SerializeField] private GameModeManager _GMmanager;
 	private GameObject tile;
 	private GameObject _wall;
