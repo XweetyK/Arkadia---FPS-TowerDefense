@@ -13,14 +13,35 @@ public class GameManager : MonoBehaviour {
 	private bool _waveActive =false;
 
 	void Update(){
-		if (_gameModeManager.GameMode != GameModeManager.GAMEMODE.GAMELOSE || _gameModeManager.GameMode != GameModeManager.GAMEMODE.GAMEWIN) {
+		_waveActive = _enemyWaveSpawner.SpawnerStatus;
+		switch (_gameModeManager.GameMode) {
+		case GameModeManager.GAMEMODE.WALLBUILDER:
+			if (Input.GetButtonDown ("Jump")) {
+				_gameModeManager.GameMode = GameModeManager.GAMEMODE.DESTROYER;
+				_enemyWaveSpawner.Activated ();
+			}
+			break;
+		case GameModeManager.GAMEMODE.DESTROYER:
+			if (!_waveActive) {
+				_gameModeManager.GameMode = GameModeManager.GAMEMODE.WALLBUILDER;
+			}
+			break;
+		case GameModeManager.GAMEMODE.GAMEWIN:
+		case GameModeManager.GAMEMODE.GAMELOSE:
+			Debug.Log ("CHANGESCENE");
+			Invoke ("ChangeScene", _sceneDelay);
+			_ENDGAME.color.a++;
+			break;
+		}
+
+		/*if (_gameModeManager.GameMode != GameModeManager.GAMEMODE.GAMEWIN && _gameModeManager.GameMode != GameModeManager.GAMEMODE.GAMELOSE) {
 			_waveActive = _enemyWaveSpawner.SpawnerStatus;
 			if (!_waveActive) {
 				_gameModeManager.GameMode = GameModeManager.GAMEMODE.WALLBUILDER;
 				if (Input.GetButtonDown ("Jump")) {
 					_gameModeManager.GameMode = GameModeManager.GAMEMODE.DESTROYER;
 					_enemyWaveSpawner.Activated ();
-					if (_gameModeManager.GameMode == GameModeManager.GAMEMODE.GAMELOSE || _gameModeManager.GameMode != GameModeManager.GAMEMODE.GAMEWIN) {
+					if (_gameModeManager.GameMode == GameModeManager.GAMEMODE.GAMELOSE || _gameModeManager.GameMode == GameModeManager.GAMEMODE.GAMEWIN) {
 						Debug.Log ("CHANGESCENE");
 						Invoke ("ChangeScene", _sceneDelay);
 						_ENDGAME.color.a++;
@@ -32,6 +53,7 @@ public class GameManager : MonoBehaviour {
 			Invoke ("ChangeScene", _sceneDelay);
 			_ENDGAME.color.a++;
 		}
+		*/
 		Debug.Log (_gameModeManager.GameMode);
 	}
 	private void ChangeScene(){

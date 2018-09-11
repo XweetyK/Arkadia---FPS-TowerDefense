@@ -53,9 +53,13 @@ public class EnemyWaveSpawner : MonoBehaviour {
 				_enemyWave [_actualWave] [_waveCant].GetComponent<EnemyWalker> ().Walk ();
 				_waveCant++;
 				Invoke ("Spawner", _spawnerDelay);
+
 			}
 		} else {
 			_activeSpawner = false;
+			if (_enemyWave.Length >= _enemyWavesCant.Length) {
+			_manager.GameMode = GameModeManager.GAMEMODE.GAMEWIN;
+			}
 		}
 	}
 	public bool SpawnerStatus{
