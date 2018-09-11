@@ -312,18 +312,30 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\BulletMovement.cs" />
-    <Compile Include="Assets\Scripts\EnemyShooter.cs" />
-    <Compile Include="Assets\Scripts\EnemyWalker.cs" />
-    <Compile Include="Assets\Scripts\GameModeManager.cs" />
-    <Compile Include="Assets\Scripts\HUDManager.cs" />
-    <Compile Include="Assets\Scripts\Movement.cs" />
-    <Compile Include="Assets\Scripts\SpinningCube.cs" />
-    <Compile Include="Assets\Scripts\TileManager.cs" />
-    <Compile Include="Assets\Scripts\WallClass.cs" />
-    <Compile Include="Assets\Scripts\WallShooter.cs" />
-    <Compile Include="Assets\Scripts\WallsManager.cs" />
-    <Compile Include="Assets\Scripts\WallSpawn.cs" />
+    <Compile Include="Assets\Scripts\Enemy\copy.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyShooter.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyWalker.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyWaveSpawner.cs" />
+    <Compile Include="Assets\Scripts\Enemy\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\Managers\BaseManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\BaseManager1.cs" />
+    <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\GameModeManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\HUDManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\Life.cs" />
+    <Compile Include="Assets\Scripts\Managers\SpinningCube.cs" />
+    <Compile Include="Assets\Scripts\Managers\Target.cs" />
+    <Compile Include="Assets\Scripts\Managers\TileManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\TurretMov.cs" />
+    <Compile Include="Assets\Scripts\Managers\TurretShooter.cs" />
+    <Compile Include="Assets\Scripts\Managers\UIRotation.cs" />
+    <Compile Include="Assets\Scripts\Managers\WallClass.cs" />
+    <Compile Include="Assets\Scripts\Managers\WallsManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\WallSpawn.cs" />
+    <Compile Include="Assets\Scripts\Player\BulletDamager.cs" />
+    <Compile Include="Assets\Scripts\Player\BulletMovement.cs" />
+    <Compile Include="Assets\Scripts\Player\Movement.cs" />
+    <Compile Include="Assets\Scripts\Player\WallShooter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />
