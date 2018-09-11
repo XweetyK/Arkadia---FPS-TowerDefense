@@ -37,8 +37,14 @@ public class EnemyWaveSpawner : MonoBehaviour {
 			}
 			if (_waveChecker == _enemyWave [_actualWave].Length) {
 				_activeSpawner = false;
+				if (_actualWave == _enemyWave.Length -1) {
+					Debug.Log ("GameWinFromEnemy");
+					_manager.GameMode = GameModeManager.GAMEMODE.GAMEWIN;
+				}
 			}
 		}
+
+
 	}
 	public void Activated(){
 		_activeSpawner = true;
@@ -57,9 +63,6 @@ public class EnemyWaveSpawner : MonoBehaviour {
 			}
 		} else {
 			_activeSpawner = false;
-			if (_enemyWave.Length >= _enemyWavesCant.Length) {
-			_manager.GameMode = GameModeManager.GAMEMODE.GAMEWIN;
-			}
 		}
 	}
 	public bool SpawnerStatus{
