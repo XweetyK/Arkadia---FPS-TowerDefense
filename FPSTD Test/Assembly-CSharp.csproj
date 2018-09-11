@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\Enemy\EnemyWaveSpawner.cs" />
      <Compile Include="Assets\Scripts\Enemy\HealthBar.cs" />
      <Compile Include="Assets\Scripts\Managers\BaseManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\BaseManager1.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\GameModeManager.cs" />
      <Compile Include="Assets\Scripts\Managers\HUDManager.cs" />

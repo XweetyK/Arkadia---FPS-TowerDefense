@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameModeManager : MonoBehaviour {
 
-	public enum GAMEMODE{WALLBUILDER,DESTROYER};
+	public enum GAMEMODE{WALLBUILDER,DESTROYER,GAMELOSE,GAMEWIN};
 	private GAMEMODE _gameMode;
 	void Awake(){
 		_gameMode = GAMEMODE.WALLBUILDER;
