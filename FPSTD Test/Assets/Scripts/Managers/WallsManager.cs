@@ -7,19 +7,40 @@ public class WallsManager : MonoBehaviour {
 	[SerializeField] private int wallsCant;
 	[SerializeField] private float wallHeight=0.5f;
 	[SerializeField] private GameObject wallPrefab;
+	[SerializeField] private int _freeWallCount;
 	private GameObject[] walls;
-	private int _freeWallCount;
 
 	void Start () {
+		if (_freeWallCount > wallsCant) {
+			_freeWallCount = wallsCant;
+		}
 		walls= new GameObject[wallsCant];
 		for (int i = 0; i < wallsCant; i++) {
 			walls [i] = Instantiate (wallPrefab);
 			walls [i].transform.position = new Vector3 (0+ i * 2, wallHeight, 100);
 			walls [i].GetComponent<WallClass> ().OriginalPos = walls [i].transform.position;
-			_freeWallCount = wallsCant;
 		}
 	}
 
+	void OnEnable()
+	{
+		GameManager.GetInstance ().AddListener (OnWaveEndEvent, GameManager.GameEvent.WaveEnd);
+	}
+
+	void OnDisable()
+	{
+		if (GameManager.GetInstance ()) {
+			GameManager.GetInstance ().RemoveListener (OnWaveEndEvent, GameManager.GameEvent.WaveEnd);
+		}
+	}
+
+
+	void OnWaveEndEvent(GameManager.GameEvent evt)
+	{
+		if (wallsCant > 0 && walls [walls.Length - 1].GetComponent<WallClass> ().Placed == false) {
+			freeWallCount++;
+		}
+	}
 	public GameObject FreeCheck(){
 		for (int i = 0; i < wallsCant; i++) {
 			if (walls [i].GetComponent<WallClass> ().Placed == false) {

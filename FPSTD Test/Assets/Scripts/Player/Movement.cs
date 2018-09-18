@@ -22,6 +22,25 @@ public class Movement : MonoBehaviour {
 		Cursor.visible = false;
 		cont = 0;
 	}
+
+	void OnEnable()
+	{
+		GameManager.GetInstance ().AddListener (OnWaveEndEvent, GameManager.GameEvent.WaveEnd);
+	}
+
+	void OnDisable()
+	{
+		if (GameManager.GetInstance ()) {
+			GameManager.GetInstance ().RemoveListener (OnWaveEndEvent, GameManager.GameEvent.WaveEnd);
+		}
+	}
+
+
+	void OnWaveEndEvent(GameManager.GameEvent evt)
+	{
+		Debug.Log ("OnWave End");
+	}
+
 	void Update () {
 		switch (_gmManager.GameMode) {
 		case GameModeManager.GAMEMODE.WALLBUILDER:

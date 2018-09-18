@@ -17,6 +17,24 @@ public class EnemyShooter : MonoBehaviour {
 	void Awake() {
 		_bulletCont = _maxBullets;
 	}
+
+	void OnEnable()
+	{
+		GameManager.GetInstance ().AddListener (OnWaveStartEvent, GameManager.GameEvent.WaveStart);
+	}
+
+	void OnDisable()
+	{
+		if (GameManager.GetInstance ()) {
+			GameManager.GetInstance ().RemoveListener (OnWaveStartEvent, GameManager.GameEvent.WaveStart);
+		}
+	}
+
+	void OnWaveStartEvent(GameManager.GameEvent evt)
+	{
+		Reload ();
+		Debug.Log ("OnWave Start");
+	}
 	void Update () {
 		if (_GMmanager.GameMode == GameModeManager.GAMEMODE.DESTROYER) {
 			if (Input.GetButton ("Fire1") && _bulletCont > 0 && _reloading == false && Time.time > nextFire) {
@@ -25,11 +43,17 @@ public class EnemyShooter : MonoBehaviour {
 			}
 		}
 		if(_reloading == false && _bulletCont != _maxBullets){
+			Debug.Log (_bulletCont);
 			if(Input.GetButtonDown("Reload")){
 				Invoke ("Reload", _reloadTime);
 				_reloading = true;
-		}
-					}	}
+			}
+			if(_reloading == false && _bulletCont == 0){
+				Invoke ("Reload", _reloadTime);
+				_reloading = true;
+			}
+		}	
+	}
 	public void Shoot(){
 		bullet = Instantiate (_bullet);
 		bullet.transform.position = transform.position;
