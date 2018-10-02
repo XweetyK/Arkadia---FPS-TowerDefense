@@ -14,7 +14,7 @@ public class HUDManager : MonoBehaviour {
 	void Update () {
 		switch (_GmManager.GameMode) {
 		case GameModeManager.GAMEMODE.WALLBUILDER:
-			_Wcount = _WManager.freeWallCount;
+			_Wcount = _WManager.moneyCount;
 			_text.text = "Turrets: " + (_Wcount.ToString ());
 			break;
 		case GameModeManager.GAMEMODE.DESTROYER:

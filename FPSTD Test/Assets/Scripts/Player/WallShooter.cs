@@ -35,7 +35,7 @@ public class WallShooter : MonoBehaviour {
 			if (Physics.Raycast (transform.position, transform.forward, out hit, lenght, layer)) {
 				GameObject _tile = hit.transform.gameObject;
 				if (Input.GetButtonDown ("Fire1")) {
-					if (_manager.freeWallCount > 0) {
+					if (_manager.moneyCount >= 100) {
 						if (_tile.GetComponent<TileManager> ().SavedWall == null) {
 							_wall = _manager.FreeCheck ();
 							_tile.GetComponent<TileManager> ().SavedWall = _wall;
@@ -55,7 +55,7 @@ public class WallShooter : MonoBehaviour {
 					}
 					tile = hit.collider.gameObject;
 					tile.GetComponent<Renderer> ().material = _newMat;
-					if (_manager.freeWallCount != 0) {
+					if (_manager.moneyCount != 0) {
 						_hoverWall.transform.position = tile.transform.position + (new Vector3 (0.0f, wallHeight, 0.0f));
 						_hoverFalse.transform.position = (new Vector3 (1000, 1000, 1000));
 					} else {
