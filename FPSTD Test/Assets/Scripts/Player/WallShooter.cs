@@ -18,7 +18,8 @@ public class WallShooter : MonoBehaviour {
 	private GameObject _hoverWall;
 	private GameObject _hoverFalse;
 	private bool tiled;
-	WallsManager _manager;
+	private WallsManager _manager;
+	private Money _money;
 
 	void Awake(){
 		_hoverWall = Instantiate (hoverWall);
@@ -26,6 +27,7 @@ public class WallShooter : MonoBehaviour {
 		_hoverFalse = Instantiate (hoverFalse);
 		_hoverFalse.transform.position = (new Vector3 (1000,1020,1000));
 		_manager = managerPrefab.GetComponent<WallsManager> ();
+		_money = FindObjectOfType<Money> ();
 	}
 
 	void Update(){
@@ -35,7 +37,7 @@ public class WallShooter : MonoBehaviour {
 			if (Physics.Raycast (transform.position, transform.forward, out hit, lenght, layer)) {
 				GameObject _tile = hit.transform.gameObject;
 				if (Input.GetButtonDown ("Fire1")) {
-					if (_manager.moneyCount >= 100) {
+					if (_money.MoneyCant >= 100) {
 						if (_tile.GetComponent<TileManager> ().SavedWall == null) {
 							_wall = _manager.FreeCheck ();
 							_tile.GetComponent<TileManager> ().SavedWall = _wall;
@@ -55,7 +57,7 @@ public class WallShooter : MonoBehaviour {
 					}
 					tile = hit.collider.gameObject;
 					tile.GetComponent<Renderer> ().material = _newMat;
-					if (_manager.moneyCount != 0) {
+					if (_money.MoneyCant != 0) {
 						_hoverWall.transform.position = tile.transform.position + (new Vector3 (0.0f, wallHeight, 0.0f));
 						_hoverFalse.transform.position = (new Vector3 (1000, 1000, 1000));
 					} else {

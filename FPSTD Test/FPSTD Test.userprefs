@@ -1,17 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy\EnemyWalker.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\GameManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Enemy\EnemyWaveSpawner.cs" Line="59" Column="66" />
-      <File FileName="Assets\Base.cs" Line="19" Column="3" />
-      <File FileName="Assets\Scripts\Enemy\EnemyWalker.cs" Line="20" Column="23" />
-      <File FileName="Assets\Scripts\Managers\GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\GameModeManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\Life.cs" Line="7" Column="40" />
-      <File FileName="Assets\Scripts\Managers\BaseManager1.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\BaseManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemy\HealthBar.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\Target.cs" Line="16" Column="1" />
+      <File FileName="Assets\Scripts\Managers\WallsManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\Money.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\WallShooter.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Enemy\EnemyWalker.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\HUDManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\GameManager.cs" Line="125" Column="29" />
+      <File FileName="Assets\Scripts\Managers\TurretShooter.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\WallClass.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

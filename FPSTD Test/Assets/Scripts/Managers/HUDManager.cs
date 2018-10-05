@@ -6,16 +6,19 @@ using UnityEngine.UI;
 public class HUDManager : MonoBehaviour {
 
 	[SerializeField] Text _text;
-	[SerializeField] WallsManager _WManager;
 	[SerializeField] EnemyShooter _BManager;
 	[SerializeField] GameModeManager _GmManager;
+	private Money _money;
 	private int _Wcount;
 	private int _Bcount;
+	void Awake(){
+		_money = FindObjectOfType<Money> ();
+	}
 	void Update () {
 		switch (_GmManager.GameMode) {
 		case GameModeManager.GAMEMODE.WALLBUILDER:
-			_Wcount = _WManager.moneyCount;
-			_text.text = "Turrets: " + (_Wcount.ToString ());
+			_Wcount = _money.MoneyCant;
+			_text.text = "Money: " + (_Wcount.ToString ());
 			break;
 		case GameModeManager.GAMEMODE.DESTROYER:
 			_Bcount = _BManager.BulletCont;

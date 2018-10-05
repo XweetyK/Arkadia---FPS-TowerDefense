@@ -7,10 +7,14 @@ public class WallsManager : MonoBehaviour {
 	[SerializeField] private int _MaxTurrets;
 	[SerializeField] private float wallHeight=0.5f;
 	[SerializeField] private GameObject wallPrefab;
-	[SerializeField] private int _money;
 	[SerializeField] private EnemyWaveSpawner _WaveManager;
 	private GameObject[] walls;
 	private GameObject waveManager;
+	private Money _money;
+
+	void Awake(){
+		_money = FindObjectOfType<Money> ();
+	}
 
 	void Start () {
 		walls= new GameObject[_MaxTurrets];
@@ -38,14 +42,14 @@ public class WallsManager : MonoBehaviour {
 	void OnWaveEndEvent(GameManager.GameEvent evt)
 	{
 		if (_MaxTurrets > 0 && walls [walls.Length - 1].GetComponent<WallClass> ().Placed == false) {
-			moneyCount += 100;
+			_money.MoneySum (100);
 		}
 	}
 	public GameObject FreeCheck(){
 		for (int i = 0; i < _MaxTurrets; i++) {
 			if (walls [i].GetComponent<WallClass> ().Placed == false) {
 				walls [i].GetComponent<WallClass> ().Placed = true;
-				_money-= 100;
+				_money.MoneyDisc (100);
 				return walls [i];
 			}
 		}
@@ -56,12 +60,8 @@ public class WallsManager : MonoBehaviour {
 			if (walls [i] == returned) {
 				walls [i].transform.position = walls [i].GetComponent<WallClass> ().OriginalPos;
 				walls [i].GetComponent<WallClass> ().Placed = false;
-				_money += 50;
+				_money.MoneySum (100);
 			}
 		}
-	}
-	public int moneyCount{
-		get{ return _money; }
-		set{_money += value;}
 	}
 }

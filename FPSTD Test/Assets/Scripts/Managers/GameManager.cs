@@ -18,7 +18,11 @@ public class GameManager : MonoBehaviour {
 	[SerializeField] private EnemyWaveSpawner _enemyWaveSpawner;
 	[SerializeField] private float _sceneDelay;
 	[SerializeField] private Image _ENDGAME;
+	[SerializeField] Text _waveTextW;
+	[SerializeField] Text _waveTextB;
+	private bool _waveStart;
 	private bool _waveActive =false;
+	private int _waveNum;
 	private GameModeManager.GAMEMODE _lastGameMode;
 
 	private Dictionary<GameEvent, List<OnEventDlg>> listeners = new Dictionary<GameEvent,List<OnEventDlg>> ();
@@ -39,6 +43,9 @@ public class GameManager : MonoBehaviour {
 			Destroy (this.gameObject);
 		else
 			instance = this;
+
+		_waveStart = false;
+		_waveNum = 0;
 	}
 
 	void OnDisable()
@@ -77,6 +84,8 @@ public class GameManager : MonoBehaviour {
 			if (Input.GetButtonDown ("Jump")) {
 				_gameModeManager.GameMode = GameModeManager.GAMEMODE.DESTROYER;
 				_enemyWaveSpawner.Activated ();
+				_waveStart = true;
+				TextChange ();
 				CallListeners (GameEvent.WaveStart);
 				Debug.Log ("Destroyer");
 			}
@@ -105,6 +114,18 @@ public class GameManager : MonoBehaviour {
 			Debug.Log ("GAMELOSE");
 			SceneManager.LoadScene ("GAMELOSE");
 			break;
+		}
+	}
+	private void TextChange(){
+		if (_waveStart) {
+			_waveNum++;
+			_waveTextW.text = "Wave: " + (_waveNum.ToString ());
+			_waveTextB.text = "Wave: " + (_waveNum.ToString ());
+			_waveStart = false;
+			Invoke ("TextChange", 1.0f);
+		} else {
+			_waveTextW.text = " ";
+			_waveTextB.text = " ";
 		}
 	}
 }

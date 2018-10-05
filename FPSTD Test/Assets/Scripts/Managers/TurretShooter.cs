@@ -31,8 +31,8 @@ public class TurretShooter : MonoBehaviour {
 	}
 	private void Shoot(){
 		_bullet = Instantiate (_bulletPrefab);
-		_bullet.transform.position = transform.position;
-		_bullet.transform.rotation = transform.rotation;
+		_bullet.transform.position = this.transform.position;
+		_bullet.transform.rotation = this.transform.rotation;
 		if (_wall.Active) {
 			Invoke ("Shoot", _delay);
 		}
