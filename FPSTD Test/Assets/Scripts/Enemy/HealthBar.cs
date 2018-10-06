@@ -9,6 +9,7 @@ public class HealthBar : MonoBehaviour {
 	private Life _lifeManager;
 	private int _startLife;
 	private int _updatedLife;
+	[SerializeField]private bool _isBase;
 
 	void Start(){
 		_lifeManager = gameObject.GetComponent<Life> ();
@@ -16,7 +17,12 @@ public class HealthBar : MonoBehaviour {
 		_updatedLife = _lifeManager.LifeGetter;
 	}
 	void Update(){
-		_updatedLife = _lifeManager.LifeGetter;
-		_bar.fillAmount = (float)_updatedLife / _startLife;
+		if (!_isBase) {
+			_updatedLife = _lifeManager.LifeGetter;
+			_bar.fillAmount = (float)_updatedLife / _startLife;
+		} else {
+			_updatedLife = _lifeManager.LifeGetter;
+			_bar.fillAmount = 1.0f-((float)_updatedLife / _startLife);
+		}
 	}
 }

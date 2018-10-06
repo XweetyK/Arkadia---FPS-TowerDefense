@@ -20,10 +20,12 @@ public class GameManager : MonoBehaviour {
 	[SerializeField] private Image _ENDGAME;
 	[SerializeField] Text _waveTextW;
 	[SerializeField] Text _waveTextB;
+	[SerializeField] Text _guideTxt;
 	private bool _waveStart;
 	private bool _waveActive =false;
 	private int _waveNum;
 	private GameModeManager.GAMEMODE _lastGameMode;
+	private SceneChange _scene;
 
 	private Dictionary<GameEvent, List<OnEventDlg>> listeners = new Dictionary<GameEvent,List<OnEventDlg>> ();
 
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour {
 
 		_waveStart = false;
 		_waveNum = 0;
+		_scene = FindObjectOfType<SceneChange> ();
 	}
 
 	void OnDisable()
@@ -81,6 +84,7 @@ public class GameManager : MonoBehaviour {
 		_waveActive = _enemyWaveSpawner.SpawnerStatus;
 		switch (_gameModeManager.GameMode) {
 		case GameModeManager.GAMEMODE.WALLBUILDER:
+			_guideTxt.text = "Space: Start Wave";
 			if (Input.GetButtonDown ("Jump")) {
 				_gameModeManager.GameMode = GameModeManager.GAMEMODE.DESTROYER;
 				_enemyWaveSpawner.Activated ();
@@ -91,6 +95,7 @@ public class GameManager : MonoBehaviour {
 			}
 			break;
 		case GameModeManager.GAMEMODE.DESTROYER:
+			_guideTxt.text = "Shift: Switch Base";
 			if (!_waveActive) {
 				_gameModeManager.GameMode = GameModeManager.GAMEMODE.WALLBUILDER;
 				CallListeners (GameEvent.WaveEnd);
@@ -104,15 +109,17 @@ public class GameManager : MonoBehaviour {
 			_ENDGAME.color.a++;
 			break;
 		}
+		if (Input.GetButtonDown ("Cancel")) {
+			_scene.MainMenu ();
+		}
 	}
 	private void ChangeScene(){
 		switch (_gameModeManager.GameMode) {
 		case GameModeManager.GAMEMODE.GAMEWIN:
-			SceneManager.LoadScene ("GAMEWIN");
+			_scene.Win ();
 			break;
 		case GameModeManager.GAMEMODE.GAMELOSE:
-			Debug.Log ("GAMELOSE");
-			SceneManager.LoadScene ("GAMELOSE");
+			_scene.Lose ();
 			break;
 		}
 	}

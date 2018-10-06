@@ -43,7 +43,7 @@ public class EnemyShooter : MonoBehaviour {
 			}
 		}
 		if(_reloading == false && _bulletCont != _maxBullets){
-			if(Input.GetButtonDown("Reload")){
+			if(Input.GetButtonDown("Fire2")){
 				Invoke ("Reload", _reloadTime);
 				_reloading = true;
 			}
