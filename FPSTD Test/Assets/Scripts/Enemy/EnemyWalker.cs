@@ -10,22 +10,29 @@ public class EnemyWalker : MonoBehaviour {
 	private Money _money;
 	[SerializeField] private float _destroyerDelay=0.5f;
 	[SerializeField] private int _moneyCant=50;
+	private Animator _animation;
+	private bool _alive;
 
 	void Awake(){
 		_nma = GetComponent<NavMeshAgent> ();
 		_target = GameObject.FindGameObjectWithTag ("Target");
 		_money = FindObjectOfType<Money>();
+		_animation = gameObject.GetComponentInChildren<Animator> ();
 	}
 	void Start(){
 		_life = GetComponent<Life> ();
+		_alive = true;
 	}
 	void Update(){
 		checkHealth ();
 	}
 	void checkHealth(){
 		if (_life.LifeGetter <= 0) {
+			_nma.isStopped = true;
+			_alive = false;
+			_animation.SetBool ("IsDead", true);
 			_money.MoneySum (_moneyCant);
-			Destroy (gameObject);
+			Destroy (gameObject,2.0f);
 		}
 	}
 	public void Walk(){
@@ -33,5 +40,8 @@ public class EnemyWalker : MonoBehaviour {
 	}
 	public void Destroyer(){
 		Destroy (gameObject,_destroyerDelay);
+	}
+	public bool Alive{
+		get{ return _alive; }
 	}
 }

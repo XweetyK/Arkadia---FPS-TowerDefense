@@ -18,8 +18,6 @@ public class Movement : MonoBehaviour {
 	RaycastHit info;
 
 	void Start(){
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
 		cont = 0;
 	}
 

@@ -5,11 +5,9 @@ using UnityEngine;
 public class Money : MonoBehaviour {
 
 	[SerializeField] private int _initMoney;
-	private WallsManager _walls;
 	private int _moneyCant;
 
 	void Awake () {
-		_walls = FindObjectOfType<WallsManager> ();
 	}
 	void Start(){
 		_moneyCant = _initMoney;

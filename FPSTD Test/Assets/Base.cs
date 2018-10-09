@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class Base : MonoBehaviour {
 
-	private Life _life;
+	//private Life _life;
 	void Start () {
 		
 	}
 
 	void Awake(){
-		_life = GetComponent<Life> ();
+	//	_life = GetComponent<Life> ();
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		
 	}
