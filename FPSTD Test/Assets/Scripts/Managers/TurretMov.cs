@@ -38,7 +38,7 @@ public class TurretMov : MonoBehaviour {
 		_totalEnemies = GameObject.FindGameObjectsWithTag ("Enemy");
 		for (int i = 0; i < _totalEnemies.Length; i++) {
 			_distance = Vector3.Distance (transform.position, _totalEnemies [i].transform.position);
-			if (_distance < _maxDistance) {
+			if (_distance < _maxDistance && _totalEnemies [i].GetComponent<EnemyWalker>().Alive) {
 				_maxDistance = _distance;
 				_nearest = _totalEnemies [i];
 			}

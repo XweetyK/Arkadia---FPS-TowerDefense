@@ -19,8 +19,10 @@ public class TurretShooter : MonoBehaviour {
 		if (_wall.Placed == true) {
 			RaycastHit hit;
 			if (Physics.Raycast (transform.position, transform.forward, out hit, _shootRange, _layer) && Time.time > nextFire){
+				if (hit.collider.gameObject.GetComponent<EnemyWalker> ().Alive) {
 					Shoot ();
 					nextFire = Time.time + _fireRate;
+				}
 			}
 		}
 	}

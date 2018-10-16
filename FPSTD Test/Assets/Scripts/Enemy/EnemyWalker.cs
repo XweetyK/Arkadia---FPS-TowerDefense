@@ -27,7 +27,7 @@ public class EnemyWalker : MonoBehaviour {
 		checkHealth ();
 	}
 	void checkHealth(){
-		if (_life.LifeGetter <= 0) {
+		if (_life.LifeGetter <= 0 && _alive == true) {
 			_nma.isStopped = true;
 			_alive = false;
 			_animation.SetBool ("IsDead", true);
