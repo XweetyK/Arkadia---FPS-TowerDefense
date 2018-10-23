@@ -54,6 +54,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Base.cs" />
+     <Compile Include="Assets\Gun.cs" />
+     <Compile Include="Assets\Pistol.cs" />
      <Compile Include="Assets\Scripts\Enemy\copy.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyShooter.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyWalker.cs" />
@@ -82,16 +84,16 @@
      <None Include="Assets\AssetsPack\Textures and Sprites\SF UI\Background\LICENSE.txt" />
      <None Include="Assets\Materials\UI-Default-No-Alpha.shader" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>C:/Users/Administrador/Desktop/FPS-TowerDefense/FPSTD Test/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/Administrador/Desktop/Arkadia---FPS-TowerDefense/FPSTD Test/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/Administrador/Desktop/FPS-TowerDefense/FPSTD Test/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/Administrador/Desktop/Arkadia---FPS-TowerDefense/FPSTD Test/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/Administrador/Desktop/FPS-TowerDefense/FPSTD Test/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/Administrador/Desktop/Arkadia---FPS-TowerDefense/FPSTD Test/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/Administrador/Desktop/FPS-TowerDefense/FPSTD Test/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/Administrador/Desktop/Arkadia---FPS-TowerDefense/FPSTD Test/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity2018_2/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

@@ -322,7 +322,6 @@
     <Compile Include="Assets\Scripts\Managers\Life.cs" />
     <Compile Include="Assets\Scripts\Managers\Money.cs" />
     <Compile Include="Assets\Scripts\Managers\SceneChange.cs" />
-    <Compile Include="Assets\Scripts\Managers\SpinningCube.cs" />
     <Compile Include="Assets\Scripts\Managers\Target.cs" />
     <Compile Include="Assets\Scripts\Managers\TileManager.cs" />
     <Compile Include="Assets\Scripts\Managers\TurretMov.cs" />

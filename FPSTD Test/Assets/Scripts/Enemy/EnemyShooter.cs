@@ -8,6 +8,7 @@ public class EnemyShooter : MonoBehaviour {
 	[SerializeField] private GameModeManager _GMmanager;
 	[SerializeField] private int _maxBullets = 20;
 	[SerializeField] private float _fireRate = 0.3f;
+	[SerializeField] private Gun _weapon;
 	private float nextFire = 0.0f;
 	private int _bulletCont;
 	private float _reloadTime = 3f;
@@ -53,10 +54,12 @@ public class EnemyShooter : MonoBehaviour {
 			}
 		}	
 	}
+	public void updateStats(){
+		_fireRate = _weapon.fireRate;
+		_maxBullets = _weapon.magSize;
+	}
 	public void Shoot(){
-		bullet = Instantiate (_bullet);
-		bullet.transform.position = transform.position;
-		bullet.transform.rotation = transform.rotation;
+		_weapon.shoot ();
 		_bulletCont--;
 	}
 	public void Reload() {

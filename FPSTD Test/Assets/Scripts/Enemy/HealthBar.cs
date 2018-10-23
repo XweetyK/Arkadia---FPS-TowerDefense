@@ -7,8 +7,8 @@ public class HealthBar : MonoBehaviour {
 
 	[SerializeField] private Image _bar;
 	private Life _lifeManager;
-	private int _startLife;
-	private int _updatedLife;
+	private float _startLife;
+	private float _updatedLife;
 	[SerializeField]private bool _isBase;
 
 	void Start(){

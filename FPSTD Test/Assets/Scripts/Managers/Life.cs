@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Life : MonoBehaviour {
 
-	[SerializeField] private int _life=12;
+	[SerializeField] private float _life=12;
 	void Update (){
 	}
-	public int LifeGetter{
+	public float LifeGetter{
 		get{ return _life; }
 		set{ _life = value; }
 	}
-	public void Damager(int damage){
+	public void Damager(float damage){
 		_life -= damage;
 	}
 }
