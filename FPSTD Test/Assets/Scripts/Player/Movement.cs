@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour {
 	[SerializeField] private float spe=80;
 	[SerializeField] private GameModeManager _gmManager;
 	[SerializeField] private RawImage UI;
-	[SerializeField] private GameObject[] _base;
+	private BaseManager[] _base;
 	float transX;
 	float transZ;
 	float rotX;
@@ -20,8 +20,12 @@ public class Movement : MonoBehaviour {
 	void Start(){
 		cont = 0;
 	}
+    void Awake()
+    {
+        _base = FindObjectsOfType<BaseManager>();
+    }
 
-	void OnEnable()
+    void OnEnable()
 	{
 		GameManager.GetInstance ().AddListener (OnWaveEndEvent, GameManager.GameEvent.WaveEnd);
 	}
@@ -55,7 +59,7 @@ public class Movement : MonoBehaviour {
 			rotY = Input.GetAxis ("Mouse X") * spe * Time.deltaTime;
 			transform.GetChild (0).Rotate (-rotX, 0, 0);
 			transform.Rotate (0, rotY, 0);
-			transform.position = (_base [cont].transform.position) + (new Vector3 (0.0f, 2.0f, 0.0f));
+			transform.position = (_base [cont].transform.position) + (new Vector3 (0.0f, 3.0f, 0.0f));
 			if (Input.GetButtonDown ("Fire3")) {
 				if (cont != (_base.Length - 1)) {
 					cont++;
