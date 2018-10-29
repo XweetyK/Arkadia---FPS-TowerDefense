@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyShooter : MonoBehaviour {
 
-	[SerializeField] private GameObject _bullet;
 	[SerializeField] private GameModeManager _GMmanager;
 	[SerializeField] private int _maxBullets = 20;
 	[SerializeField] private float _fireRate = 0.3f;
@@ -13,10 +12,9 @@ public class EnemyShooter : MonoBehaviour {
 	private int _bulletCont;
 	private float _reloadTime = 3f;
 	private bool _reloading = false;
-	GameObject bullet;
-
-	void Awake() {
-		_bulletCont = _maxBullets;
+	private bool input;
+	void Start() {
+		updateStats ();
 	}
 
 	void OnEnable()
@@ -38,7 +36,11 @@ public class EnemyShooter : MonoBehaviour {
 	}
 	void Update () {
 		if (_GMmanager.GameMode == GameModeManager.GAMEMODE.DESTROYER) {
-			if (Input.GetButton ("Fire1") && _bulletCont > 0 && _reloading == false && Time.time > nextFire) {
+			if (_weapon.automatic) {
+				input = Input.GetButton ("Fire1");
+			} else
+				input = Input.GetButtonDown ("Fire1");
+			if (input && _bulletCont > 0 && _reloading == false && Time.time > nextFire) {
 				Shoot ();
 				nextFire = Time.time + _fireRate;
 			}

@@ -10,6 +10,7 @@ public abstract class Gun : MonoBehaviour {
 	[SerializeField]protected float _range = 0f;
 	[SerializeField]protected string _name = "BLANK";
 	[SerializeField]protected GameObject _bullet;
+	[SerializeField]protected bool _automatic;
 	protected GameObject bullet;
 
 	public abstract void shoot ();
@@ -20,5 +21,8 @@ public abstract class Gun : MonoBehaviour {
 	public int magSize{
 		get{ return _magSize;}
 		set{_magSize = value;}
+	}
+	public bool automatic{
+		get{ return _automatic;}
 	}
 }
