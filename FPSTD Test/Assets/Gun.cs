@@ -22,6 +22,9 @@ public abstract class Gun : MonoBehaviour {
 		get{ return _magSize;}
 		set{_magSize = value;}
 	}
+	public float range{
+		get{ return _range;}
+	}
 	public bool automatic{
 		get{ return _automatic;}
 	}
