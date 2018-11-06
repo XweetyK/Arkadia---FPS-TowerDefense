@@ -310,6 +310,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Base.cs" />
+    <Compile Include="Assets\Gun.cs" />
+    <Compile Include="Assets\Pistol.cs" />
     <Compile Include="Assets\Scripts\Enemy\copy.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyShooter.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyWalker.cs" />
