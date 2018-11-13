@@ -53,20 +53,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Base.cs" />
-     <Compile Include="Assets\Gun.cs" />
-     <Compile Include="Assets\Laser.cs" />
-     <Compile Include="Assets\Launcher.cs" />
-     <Compile Include="Assets\Pistol.cs" />
      <Compile Include="Assets\Scripts\Enemy\copy.cs" />
-     <Compile Include="Assets\Scripts\Enemy\EnemyShooter.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyWalker.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyWaveSpawner.cs" />
-     <Compile Include="Assets\Scripts\Enemy\HealthBar.cs" />
+     <Compile Include="Assets\Scripts\Gun\Gun.cs" />
+     <Compile Include="Assets\Scripts\Gun\Laser.cs" />
+     <Compile Include="Assets\Scripts\Gun\Launcher.cs" />
+     <Compile Include="Assets\Scripts\Gun\Pistol.cs" />
+     <Compile Include="Assets\Scripts\Managers\Base.cs" />
      <Compile Include="Assets\Scripts\Managers\BaseManager.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\GameModeManager.cs" />
-     <Compile Include="Assets\Scripts\Managers\HUDManager.cs" />
      <Compile Include="Assets\Scripts\Managers\Life.cs" />
      <Compile Include="Assets\Scripts\Managers\Money.cs" />
      <Compile Include="Assets\Scripts\Managers\SceneChange.cs" />
@@ -74,15 +71,18 @@
      <Compile Include="Assets\Scripts\Managers\TileManager.cs" />
      <Compile Include="Assets\Scripts\Managers\TurretMov.cs" />
      <Compile Include="Assets\Scripts\Managers\TurretShooter.cs" />
-     <Compile Include="Assets\Scripts\Managers\UIRotation.cs" />
      <Compile Include="Assets\Scripts\Managers\WallClass.cs" />
      <Compile Include="Assets\Scripts\Managers\WallsManager.cs" />
      <Compile Include="Assets\Scripts\Managers\WallSpawn.cs" />
      <Compile Include="Assets\Scripts\Managers\WinLoseChange.cs" />
      <Compile Include="Assets\Scripts\Player\BulletDamager.cs" />
      <Compile Include="Assets\Scripts\Player\BulletMovement.cs" />
+     <Compile Include="Assets\Scripts\Player\EnemyShooter.cs" />
      <Compile Include="Assets\Scripts\Player\Movement.cs" />
      <Compile Include="Assets\Scripts\Player\WallShooter.cs" />
+     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
+     <Compile Include="Assets\Scripts\UI\HUDManager.cs" />
+     <Compile Include="Assets\Scripts\UI\UIRotation.cs" />
      <None Include="Assets\AssetsPack\Sci-Fi Styled Modular Pack\Readme.txt" />
      <None Include="Assets\AssetsPack\Textures and Sprites\SF UI\Background\LICENSE.txt" />
      <None Include="Assets\Materials\UI-Default-No-Alpha.shader" />
