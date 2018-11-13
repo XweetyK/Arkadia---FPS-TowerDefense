@@ -13,13 +13,13 @@ public class Laser : MonoBehaviour {
 		_range = _weapon.range;
 	}
 
-	void Update () {
+	void LateUpdate () {
 		_lineR.SetPosition (0, _weapon.transform.position);
 		if (Physics.Raycast (_weapon.transform.position, Camera.main.transform.forward, out _hit, _range)) {
 			_lineR.SetPosition (1, _hit.point);
-			//Debug.Log (_hit.collider.name);
+			Debug.Log (_hit.collider.name);
 			Debug.Log (_weapon.transform.position + _weapon.name);
-			//Debug.Log (_hit.collider.transform.position);
+			Debug.Log (_hit.collider.transform.position);
 		} else {
 			_lineR.SetPosition (1, _weapon.transform.localPosition);
 		}
