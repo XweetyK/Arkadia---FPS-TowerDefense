@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class InputPC : IInput
 {
-    public bool GetFireButton()
-    {
-        return Input.GetButton("Fire1");
-    }
-
-    public float GetHorizontalAxis()
-    {
-        return Input.GetAxis("Horizontal");
-    }
+	public float GetHorizontalAxis()
+	{
+		return Input.GetAxis ("Mouse X");
+	}
+	public float GetVerticalAxis()
+	{
+		return Input.GetAxis ("Mouse Y");
+	}
 
 }

@@ -1,6 +1,6 @@
 ﻿
 interface IInput
 {
-    bool GetFireButton();
     float GetHorizontalAxis();
+	float GetVerticalAxis();
 }

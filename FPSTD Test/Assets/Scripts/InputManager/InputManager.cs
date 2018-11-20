@@ -39,17 +39,18 @@ public class InputManager : MonoBehaviour
         input = new InputAndroid();
 #else
         input = new InputPC();
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 #endif
-    }
-
-    public bool GetFireButton()
-    {
-        return input.GetFireButton();
     }
 
     public float GetHorizontalAxis()
     {
         return input.GetHorizontalAxis();
     }
+	public float GetVerticalAxis()
+	{
+		return input.GetVerticalAxis();
+	}
 
 }

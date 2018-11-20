@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class InputAndroid : IInput
 {
-    public bool GetFireButton()
-    {
-        return Input.touchCount > 0;
-    }
-
     public float GetHorizontalAxis()
     {
-        return Input.acceleration.x;
+		return SimpleInput.GetAxis ("Android X");
     }
+	public float GetVerticalAxis()
+	{
+		return SimpleInput.GetAxis ("Android Y");
+	}
 
 }

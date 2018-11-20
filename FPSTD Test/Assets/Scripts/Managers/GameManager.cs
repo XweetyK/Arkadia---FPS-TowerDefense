@@ -49,8 +49,7 @@ public class GameManager : MonoBehaviour {
 		_waveStart = false;
 		_waveNum = 0;
 		_scene = FindObjectOfType<SceneChange> ();
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
+
 	}
 
 	void OnDisable()

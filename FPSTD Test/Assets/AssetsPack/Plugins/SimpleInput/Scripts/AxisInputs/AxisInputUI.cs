@@ -29,7 +29,6 @@ namespace SimpleInputNamespace
 
 		public void OnPointerDown( PointerEventData eventData )
 		{
-			Debug.Log (axis.ToString());
 			axis.value = value;
 		}
 
