@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour {
 	[SerializeField] private float spe=80;
 	[SerializeField] private GameModeManager _gmManager;
 	[SerializeField] private RawImage UI;
+	[SerializeField] private Gun _gun;
 	private BaseManager[] _base;
 	float transX;
 	float transZ;
@@ -56,10 +57,10 @@ public class Movement : MonoBehaviour {
 			transform.rotation = Quaternion.Euler(0, rotY, 0);
 			break;
 		case GameModeManager.GAMEMODE.DESTROYER:
-			rotX = Input.GetAxis ("Mouse Y") * spe * Time.deltaTime;
+			rotX += Input.GetAxis ("Mouse Y") * spe * Time.deltaTime;
 			rotY = Input.GetAxis ("Mouse X") * spe * Time.deltaTime;
 			rotX = Mathf.Clamp(rotX, -70f, 70f);
-			transform.GetChild (0).Rotate (-rotX, 0, 0);
+			transform.GetChild (0).transform.localRotation =  Quaternion.Euler (-rotX - _gun.recoil, 0, 0);
 			transform.Rotate (0, rotY, 0);
 			transform.position = (_base [cont].transform.position) + (new Vector3 (0.0f, 3.0f, 0.0f));
 			if (Input.GetButtonDown ("Fire3")) {
@@ -74,5 +75,9 @@ public class Movement : MonoBehaviour {
 		if (Input.GetButtonDown ("Map")) {
 			UI.GetComponent<RawImage> ().enabled= (!UI.GetComponent<RawImage> ().IsActive());
 		}
+	}
+
+	public Gun gun{
+		set{ _gun = value;}
 	}
 }

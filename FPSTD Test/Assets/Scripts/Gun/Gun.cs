@@ -11,6 +11,9 @@ public abstract class Gun : MonoBehaviour {
 	[SerializeField]protected string _name = "BLANK";
 	[SerializeField]protected GameObject _bullet;
 	[SerializeField]protected bool _automatic;
+	[SerializeField]protected float _maxRecoil = 50f;
+	[SerializeField]protected float _recoilAdd = 15f;
+	protected float _recoil;
 	protected GameObject bullet;
 
 	public abstract void shoot ();
@@ -24,6 +27,10 @@ public abstract class Gun : MonoBehaviour {
 	}
 	public float range{
 		get{ return _range;}
+	}
+	public float recoil{
+		get{ return _recoil;}
+		set{_recoil = value;}
 	}
 	public bool automatic{
 		get{ return _automatic;}
