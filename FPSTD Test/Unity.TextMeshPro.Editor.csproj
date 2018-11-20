@@ -403,7 +403,11 @@
   <ItemGroup>
     <None Include="Assets\AssetsPack\Sci-Fi Styled Modular Pack\Readme.txt" />
     <None Include="Assets\AssetsPack\Textures and Sprites\SF UI\Background\LICENSE.txt" />
+    <None Include="Assets\FingersLite\ChangeLog.txt" />
+    <None Include="Assets\FingersLite\Readme.txt" />
     <None Include="Assets\Materials\UI-Default-No-Alpha.shader" />
+    <None Include="Assets\Plugins\SimpleInput\Credits.txt" />
+    <None Include="Assets\Plugins\SimpleInput\README.txt" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Light.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\Alert.uxml" />

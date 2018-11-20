@@ -291,6 +291,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="FPSTD Test.Plugins.csproj">
+      <Project>{218E4C7A-FA8D-ABA1-4DAC-F30F45276F3F}</Project>
+      <Name>FPSTD Test.Plugins</Name>
+    </ProjectReference>
     <ProjectReference Include="UnityEditor.StandardEvents.csproj">
       <Project>{6800202F-4402-D405-F8CB-03DC7BD78B92}</Project>
       <Name>UnityEditor.StandardEvents</Name>
@@ -309,6 +313,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\FingersLite\Demo\DemoAsteroidScript.cs" />
+    <Compile Include="Assets\FingersLite\Demo\DemoScript.cs" />
+    <Compile Include="Assets\FingersLite\Script\FingersScript.cs" />
+    <Compile Include="Assets\FingersLite\Script\Gestures\DeviceInfo.cs" />
+    <Compile Include="Assets\FingersLite\Script\Gestures\GestureRecognizer.cs" />
+    <Compile Include="Assets\FingersLite\Script\Gestures\LongPressGestureRecognizer.cs" />
+    <Compile Include="Assets\FingersLite\Script\Gestures\OneTouchRotateGestureRecognizer.cs" />
+    <Compile Include="Assets\FingersLite\Script\Gestures\OneTouchScaleGestureRecognizer.cs" />
+    <Compile Include="Assets\FingersLite\Script\Gestures\PanGestureRecognizer.cs" />
+    <Compile Include="Assets\FingersLite\Script\Gestures\RotateGestureRecognizer.cs" />
+    <Compile Include="Assets\FingersLite\Script\Gestures\ScaleGestureRecognizer.cs" />
+    <Compile Include="Assets\FingersLite\Script\Gestures\SwipeGestureRecognizer.cs" />
+    <Compile Include="Assets\FingersLite\Script\Gestures\TapGestureRecognizer.cs" />
     <Compile Include="Assets\Scripts\Enemy\copy.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyWalker.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyWaveSpawner.cs" />
@@ -343,7 +360,11 @@
   <ItemGroup>
     <None Include="Assets\AssetsPack\Sci-Fi Styled Modular Pack\Readme.txt" />
     <None Include="Assets\AssetsPack\Textures and Sprites\SF UI\Background\LICENSE.txt" />
+    <None Include="Assets\FingersLite\ChangeLog.txt" />
+    <None Include="Assets\FingersLite\Readme.txt" />
     <None Include="Assets\Materials\UI-Default-No-Alpha.shader" />
+    <None Include="Assets\Plugins\SimpleInput\Credits.txt" />
+    <None Include="Assets\Plugins\SimpleInput\README.txt" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Light.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\Alert.uxml" />

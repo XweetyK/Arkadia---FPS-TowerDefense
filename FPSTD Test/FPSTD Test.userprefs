@@ -1,25 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\Movement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\AssetsPack\Plugins\SimpleInput\Scripts\AxisInputs\AxisInputUI.cs">
     <Files>
       <File FileName="Assets\Scripts\Managers\BaseManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Managers\GameModeManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Managers\GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player\Movement.cs" Line="54" Column="50" />
-      <File FileName="Assets\Scripts\Player\WallShooter.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player\EnemyShooter.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\WallClass.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\Base.cs" Line="13" Column="10" />
-      <File FileName="Assets\Scripts\Managers\Life.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\SceneChange.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\Target.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\TileManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\TurretMov.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\TurretShooter.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\Money.cs" Line="12" Column="13" />
-      <File FileName="Assets\Scripts\Managers\WallsManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\WinLoseChange.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player\BulletMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\Movement.cs" Line="1" Column="1" />
+      <File FileName="Assets\AssetsPack\Plugins\SimpleInput\Scripts\AxisInputs\AxisInputUI.cs" Line="32" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
