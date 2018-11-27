@@ -6,7 +6,7 @@ namespace SimpleInputNamespace
 {
 	public class ButtonInputUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	{
-		public SimpleInput.ButtonInput button = new SimpleInput.ButtonInput();
+		public SimpleInput.KeyInput key = new SimpleInput.KeyInput();
 
 		private void Awake()
 		{
@@ -17,22 +17,22 @@ namespace SimpleInputNamespace
 
 		private void OnEnable()
 		{
-			button.StartTracking();
+			key.StartTracking();
 		}
 
 		private void OnDisable()
 		{
-			button.StopTracking();
+			key.StopTracking();
 		}
 
 		public void OnPointerDown( PointerEventData eventData )
 		{
-			button.value = true;
+			key.value = true;
 		}
 
 		public void OnPointerUp( PointerEventData eventData )
 		{
-			button.value = false;
+			key.value = false;
 		}
 	}
 }

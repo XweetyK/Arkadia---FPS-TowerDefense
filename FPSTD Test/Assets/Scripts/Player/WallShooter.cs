@@ -36,7 +36,7 @@ public class WallShooter : MonoBehaviour {
 			RaycastHit hit;
 			if (Physics.Raycast (transform.position, transform.forward, out hit, lenght, layer)) {
 				GameObject _tile = hit.transform.gameObject;
-				if (Input.GetButtonDown ("Fire1")) {
+				if (InputManager.Instance.GetFire1Button()) {
 					if (_money.MoneyCant >= 100) {
 						if (_tile.GetComponent<TileManager> ().SavedWall == null) {
 							_wall = _manager.FreeCheck ();
@@ -45,7 +45,7 @@ public class WallShooter : MonoBehaviour {
 						}
 					}
 				}
-				if (Input.GetButtonDown ("Fire2")) {
+				if (InputManager.Instance.GetFire2Button()) {
 					if (_tile.GetComponent<TileManager> ().SavedWall != null) {
 						_manager.ReturnWall (_tile.GetComponent<TileManager> ().SavedWall);
 						_tile.GetComponent<TileManager> ().SavedWall = null;

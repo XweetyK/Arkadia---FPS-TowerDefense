@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
 	[SerializeField] private Image _ENDGAME;
 	[SerializeField] Text _waveTextW;
 	[SerializeField] Text _waveTextB;
-	[SerializeField] Text _guideTxt;
+
 	private bool _waveStart;
 	private bool _waveActive =false;
 	private int _waveNum;
@@ -85,8 +85,7 @@ public class GameManager : MonoBehaviour {
 		_waveActive = _enemyWaveSpawner.SpawnerStatus;
 		switch (_gameModeManager.GameMode) {
 		case GameModeManager.GAMEMODE.WALLBUILDER:
-			_guideTxt.text = "Space: Start Wave";
-			if (Input.GetButtonDown ("Jump")) {
+			if (InputManager.Instance.GetJumpButton()) {
 				_gameModeManager.GameMode = GameModeManager.GAMEMODE.DESTROYER;
 				_enemyWaveSpawner.Activated ();
 				_waveStart = true;
@@ -96,7 +95,6 @@ public class GameManager : MonoBehaviour {
 			}
 			break;
 		case GameModeManager.GAMEMODE.DESTROYER:
-			_guideTxt.text = "Shift: Switch Base";
 			if (!_waveActive) {
 				_gameModeManager.GameMode = GameModeManager.GAMEMODE.WALLBUILDER;
 				CallListeners (GameEvent.WaveEnd);

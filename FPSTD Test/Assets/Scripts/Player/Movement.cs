@@ -47,8 +47,8 @@ public class Movement : MonoBehaviour {
 	void Update () {
 		switch (_gmManager.GameMode) {
 		case GameModeManager.GAMEMODE.WALLBUILDER:
-			transZ = Input.GetAxis ("Vertical") * vel * Time.deltaTime;
-			transX = Input.GetAxis ("Horizontal") * vel * Time.deltaTime;
+			transZ = InputManager.Instance.GetVerticalKeyAxis() * vel * Time.deltaTime;
+			transX = InputManager.Instance.GetHorizontalKeyAxis() * vel * Time.deltaTime;
 			rotX += InputManager.Instance.GetVerticalAxis() * spe * Time.deltaTime;
 			rotY += InputManager.Instance.GetHorizontalAxis() * spe * Time.deltaTime;
 			rotX = Mathf.Clamp(rotX, -70f, 70f);
@@ -57,13 +57,13 @@ public class Movement : MonoBehaviour {
 			transform.rotation = Quaternion.Euler(0, rotY, 0);
 			break;
 		case GameModeManager.GAMEMODE.DESTROYER:
-			rotX = InputManager.Instance.GetVerticalAxis() * spe * Time.deltaTime;
+			rotX += InputManager.Instance.GetVerticalAxis() * spe * Time.deltaTime;
 			rotY = InputManager.Instance.GetHorizontalAxis() * spe * Time.deltaTime;
 			rotX = Mathf.Clamp(rotX, -70f, 70f);
 			transform.GetChild (0).transform.localRotation =  Quaternion.Euler (-rotX - _gun.recoil, 0, 0);
 			transform.Rotate (0, rotY, 0);
 			transform.position = (_base [cont].transform.position) + (new Vector3 (0.0f, 3.0f, 0.0f));
-			if (Input.GetButtonDown ("Fire3")) {
+			if (InputManager.Instance.GetFire3Button()) {
 				if (cont != (_base.Length - 1)) {
 					cont++;
 				} else {
@@ -72,7 +72,7 @@ public class Movement : MonoBehaviour {
 			}
 			break;
 		}
-		if (Input.GetButtonDown ("Map")) {
+		if (InputManager.Instance.GetMapButton()) {
 			UI.GetComponent<RawImage> ().enabled= (!UI.GetComponent<RawImage> ().IsActive());
 		}
 	}

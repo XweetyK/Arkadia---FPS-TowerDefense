@@ -37,16 +37,16 @@ public class EnemyShooter : MonoBehaviour {
 	void Update () {
 		if (_GMmanager.GameMode == GameModeManager.GAMEMODE.DESTROYER) {
 			if (_weapon.automatic) {
-				input = Input.GetButton ("Fire1");
+				input = InputManager.Instance.GetFire1Button();
 			} else
-				input = Input.GetButtonDown ("Fire1");
+				input = InputManager.Instance.GetFire1Button();
 			if (input && _bulletCont > 0 && _reloading == false && Time.time > nextFire) {
 				Shoot ();
 				nextFire = Time.time + _fireRate;
 			}
 		}
 		if(_reloading == false && _bulletCont != _maxBullets){
-			if(Input.GetButtonDown("Fire2")){
+			if(InputManager.Instance.GetFire2Button()){
 				Invoke ("Reload", _reloadTime);
 				_reloading = true;
 			}
