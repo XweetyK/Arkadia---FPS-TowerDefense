@@ -42,7 +42,7 @@ public class WallsManager : MonoBehaviour {
 	void OnWaveEndEvent(GameManager.GameEvent evt)
 	{
 		if (_MaxTurrets > 0 && walls [walls.Length - 1].GetComponent<WallClass> ().Placed == false) {
-			_money.MoneySum (100);
+			//_money.MoneySum (100);
 		}
 	}
 	public GameObject FreeCheck(){

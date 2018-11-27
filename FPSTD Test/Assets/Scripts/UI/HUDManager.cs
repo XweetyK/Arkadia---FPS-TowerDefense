@@ -12,10 +12,10 @@ public class HUDManager : MonoBehaviour {
 	[SerializeField] GameObject _CanvasAndroid;
 	[SerializeField] GameObject _Button1WB;
 	[SerializeField] GameObject _Button2WB;
-	[SerializeField] GameObject _Button3WB;
 	[SerializeField] GameObject _Button1DT;
 	[SerializeField] GameObject _Button2DT;
-	[SerializeField] GameObject _Button3DT;
+	[SerializeField] GameObject _MovWB;
+	[SerializeField] GameObject _Reload;
 
 	bool _isAndroid;
 	private Money _money;
@@ -43,10 +43,10 @@ public class HUDManager : MonoBehaviour {
 			if (_isAndroid) {
 				_Button1WB.SetActive (true);
 				_Button2WB.SetActive (true);
-				_Button3WB.SetActive (true);
 				_Button1DT.SetActive (false);
 				_Button2DT.SetActive (false);
-				_Button3DT.SetActive (false);
+				_Reload.SetActive (false);
+				_MovWB.SetActive (true);
 				_guideTxt.text = "Start Wave";
 			} else {
 				_guideTxt.text = "Space: Start Wave";
@@ -58,11 +58,11 @@ public class HUDManager : MonoBehaviour {
 			if (_isAndroid) {
 				_Button1WB.SetActive (false);
 				_Button2WB.SetActive (false);
-				_Button3WB.SetActive (false);
 				_Button1DT.SetActive (true);
 				_Button2DT.SetActive (true);
-				_Button3DT.SetActive (true);
-				_guideTxt.text = "Reload";
+				_Reload.SetActive (true);
+				_MovWB.SetActive (false);
+				_guideTxt.text = "Fight!";
 			}
 			else {
 				_guideTxt.text = "Shift: Switch Base";

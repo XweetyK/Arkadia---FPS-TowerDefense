@@ -8,9 +8,10 @@ public class EnemyShooter : MonoBehaviour {
 	[SerializeField] private int _maxBullets = 20;
 	[SerializeField] private float _fireRate = 0.3f;
 	[SerializeField] private Gun _weapon;
+	[SerializeField] Transform originalPos;
+	[SerializeField] Transform reloadingPos;
 	private float nextFire = 0.0f;
 	private int _bulletCont;
-	private float _reloadTime = 3f;
 	private bool _reloading = false;
 	private bool input;
 	void Start() {
@@ -34,6 +35,10 @@ public class EnemyShooter : MonoBehaviour {
 		Reload ();
 		Debug.Log ("OnWave Start");
 	}
+
+	void OnStart(){
+		_fireRate = _weapon.fireRate;
+	}
 	void Update () {
 		if (_GMmanager.GameMode == GameModeManager.GAMEMODE.DESTROYER) {
 			if (_weapon.automatic) {
@@ -47,12 +52,14 @@ public class EnemyShooter : MonoBehaviour {
 		}
 		if(_reloading == false && _bulletCont != _maxBullets){
 			if(InputManager.Instance.GetFire2Button()){
-				Invoke ("Reload", _reloadTime);
+				Invoke ("Reload", _weapon.reloadTime);
 				_reloading = true;
+				_weapon.gameObject.transform.position = Vector3.MoveTowards (_weapon.gameObject.transform.position, reloadingPos.position,0.5f);
 			}
 			if(_reloading == false && _bulletCont == 0){
-				Invoke ("Reload", _reloadTime);
+				Invoke ("Reload", _weapon.reloadTime);
 				_reloading = true;
+				_weapon.gameObject.transform.position = Vector3.MoveTowards (_weapon.gameObject.transform.position, reloadingPos.position,0.5f);
 			}
 		}	
 	}
@@ -67,6 +74,7 @@ public class EnemyShooter : MonoBehaviour {
 	public void Reload() {
 		_bulletCont = _maxBullets;
 		_reloading = false;
+		_weapon.gameObject.transform.position = Vector3.MoveTowards (_weapon.gameObject.transform.position, originalPos.position,0.5f);
 	}
 	public int BulletCont{
 		get{return _bulletCont;}
@@ -75,9 +83,5 @@ public class EnemyShooter : MonoBehaviour {
 	public int maxBullets{
 		get{return _maxBullets;}
 		set{ _maxBullets = value;}
-	}
-	public float reloadTime{
-		get{return _reloadTime;}
-		set{ _reloadTime = value;}
 	}
 }

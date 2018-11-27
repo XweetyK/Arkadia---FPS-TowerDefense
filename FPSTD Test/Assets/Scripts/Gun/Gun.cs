@@ -7,6 +7,7 @@ public abstract class Gun : MonoBehaviour {
 	[SerializeField]protected float _damage = 0f;
 	[SerializeField]protected float _piercing = 0f;
 	[SerializeField]protected int _magSize = 0;
+	[SerializeField]protected float _reloadTime = 3f;
 	[SerializeField]protected float _range = 0f;
 	[SerializeField]protected string _name = "BLANK";
 	[SerializeField]protected GameObject _bullet;
@@ -34,5 +35,8 @@ public abstract class Gun : MonoBehaviour {
 	}
 	public bool automatic{
 		get{ return _automatic;}
+	}
+	public float reloadTime{
+		get{ return _reloadTime;}
 	}
 }

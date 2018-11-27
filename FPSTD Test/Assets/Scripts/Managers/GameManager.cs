@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour {
 		case GameModeManager.GAMEMODE.GAMELOSE:
 			Debug.Log ("CHANGESCENE");
 			ChangeScene();
-			_ENDGAME.color.a++;
+			//_ENDGAME.color.a++;
 			break;
 		}
 		if (Input.GetButtonDown ("Cancel")) {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pistol : Gun {
 
 	void Update(){
-		recoil *= 50 * Time.deltaTime;
+		recoil *= Mathf.Min(50 * Time.deltaTime, 0.5f);
 	}
 
 	public override void shoot(){
@@ -13,7 +13,6 @@ public class Pistol : Gun {
 		if (_recoil > _maxRecoil) {
 			_recoil = _maxRecoil;
 		}
-		Debug.Log (_recoil);
 		Vector3 origin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f,0.5f,0.0f));
 		RaycastHit hit;
 			if (Physics.Raycast(origin,Camera.main.transform.forward,out hit,_range)){
