@@ -7,15 +7,17 @@ public class EnemyWaveSpawner : MonoBehaviour {
 
 	[SerializeField] private float _enemyHeight=0.5f;
 	[SerializeField] private GameObject _enemyPrefab;
-	[SerializeField] private Transform _spawnTarget;
+	[SerializeField] private Transform[] _spawnTarget;
 	[SerializeField] GameModeManager _manager;
 	[SerializeField] int [] _enemyWavesCant;
 	[SerializeField] float _spawnerDelay;
+	[SerializeField] bool _multiPath;
 	private GameObject[][] _enemyWave;
 	private int _actualWave=-1;
 	private int _waveCant;
 	private bool _activeSpawner=false;
 	private int _waveChecker;
+	private int _rand;
 
 	void Start(){
 		_enemyWave = new GameObject[_enemyWavesCant.Length][];
@@ -28,6 +30,7 @@ public class EnemyWaveSpawner : MonoBehaviour {
 		}
 	}
 	void Update(){
+		_rand = Random.Range (0, _spawnTarget.Length) == 0 ? 0 : _spawnTarget.Length-1;
 		if (_actualWave >= 0 && _actualWave < _enemyWave.Length) {
 			_waveChecker = 0;
 			for (int i = 0; i < _enemyWave[_actualWave].Length; i++) {
@@ -55,8 +58,12 @@ public class EnemyWaveSpawner : MonoBehaviour {
 	private void Spawner(){
 		if (_actualWave < _enemyWave.Length) {
 			if (_waveCant != _enemyWave [_actualWave].Length) {
-				_enemyWave [_actualWave] [_waveCant].GetComponent<NavMeshAgent> ().Warp (_spawnTarget.position);
-				_enemyWave [_actualWave] [_waveCant].GetComponent<EnemyWalker> ().Walk ();
+				if (_multiPath) {
+					_enemyWave [_actualWave] [_waveCant].GetComponent<NavMeshAgent> ().Warp (_spawnTarget[_rand].position);
+				} else {
+					_enemyWave [_actualWave] [_waveCant].GetComponent<NavMeshAgent> ().Warp (_spawnTarget[0].position);
+				}
+				_enemyWave [_actualWave] [_waveCant].GetComponent<EnemyWalker> ().Walk (_multiPath);
 				_waveCant++;
 				Invoke ("Spawner", _spawnerDelay);
 
