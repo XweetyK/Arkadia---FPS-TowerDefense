@@ -36,7 +36,6 @@ public class EnemyShooter : MonoBehaviour {
 	void OnWaveStartEvent(GameManager.GameEvent evt)
 	{
 		_bulletCont = _maxBullets;
-		Debug.Log ("OnWave Start");
 	}
 
 	void OnStart(){
@@ -51,11 +50,12 @@ public class EnemyShooter : MonoBehaviour {
 			if (input && _bulletCont > 0 && _reloading == false && Time.time > nextFire) {
 				Shoot ();
 				nextFire = Time.time + _fireRate;
+				_ammoDisplay.transform.localEulerAngles += new Vector3 (0, 0, 180.0f/_maxBullets);
 			}
 		}
 		if(_reloading == false && _bulletCont != _maxBullets){
 			if(InputManager.Instance.GetFire2Button()){
-				Invoke ("Reload", _weapon.reloadTime);
+				Invoke ("Reload", _weapon.reloadTime / _maxBullets * (_maxBullets - BulletCont) );
 				_reloading = true;
 				_reloadSound.Play ();
 			}
@@ -70,7 +70,7 @@ public class EnemyShooter : MonoBehaviour {
 		if (_reloading) {
 			Debug.Log ("Reloading");
 			_weapon.gameObject.transform.position = Vector3.MoveTowards (_weapon.gameObject.transform.position, reloadingPos.position,0.50f * Time.deltaTime);
-			//_ammoDisplay.transform.localEulerAngles += new Vector3 (0, 0, 12);
+			_ammoDisplay.transform.localEulerAngles -= new Vector3 (0, 0, 180/_weapon.reloadTime * Time.deltaTime);
 		}
 	}
 	public void updateStats(){
@@ -87,7 +87,7 @@ public class EnemyShooter : MonoBehaviour {
 		_weapon.gameObject.transform.position = originalPos.position;
 		_reloading = false;
 		if (_ammoDisplay) {
-			
+			_ammoDisplay.transform.localEulerAngles = new Vector3 (0,0,0);
 		}
 	}
 	public int BulletCont{

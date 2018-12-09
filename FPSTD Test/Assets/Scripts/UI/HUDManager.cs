@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class HUDManager : MonoBehaviour {
 
-	[SerializeField] Text _text;
+	[SerializeField] Text _moneyText;
+	[SerializeField] Text _ammoText;
 	[SerializeField] Text _guideTxt;
 	[SerializeField] EnemyShooter _BManager;
 	[SerializeField] GameModeManager _GmManager;
@@ -16,6 +17,7 @@ public class HUDManager : MonoBehaviour {
 	[SerializeField] GameObject _Button2DT;
 	[SerializeField] GameObject _MovWB;
 	[SerializeField] GameObject _Reload;
+	[SerializeField] Image _ammoCounter;
 
 	bool _isAndroid;
 	private Money _money;
@@ -38,6 +40,12 @@ public class HUDManager : MonoBehaviour {
 		} else {
 			_CanvasAndroid.SetActive (false);
 		}
+		_Bcount = _BManager.BulletCont;
+		_Wcount = _money.MoneyCant;
+		_ammoText.text = (_Bcount.ToString ());
+		_moneyText.text = "Money: " + (_Wcount.ToString ());
+
+
 		switch (_GmManager.GameMode) {
 		case GameModeManager.GAMEMODE.WALLBUILDER:
 			if (_isAndroid) {
@@ -50,9 +58,7 @@ public class HUDManager : MonoBehaviour {
 				_guideTxt.text = "Start Wave";
 			} else {
 				_guideTxt.text = "Space: Start Wave";
-			}
-			_Wcount = _money.MoneyCant;
-			_text.text = "Money: " + (_Wcount.ToString ());
+			} 	
 			break;
 		case GameModeManager.GAMEMODE.DESTROYER:
 			if (_isAndroid) {
@@ -63,13 +69,19 @@ public class HUDManager : MonoBehaviour {
 				_Reload.SetActive (true);
 				_MovWB.SetActive (false);
 				_guideTxt.text = "Fight!";
-			}
-			else {
+			} else {
 				_guideTxt.text = "Shift: Switch Base";
 			}
-			_Bcount = _BManager.BulletCont;
-			_text.text = "Bullets: " + (_Bcount.ToString ());
 			break;
 		}
+
+		if (_Bcount == 0){
+			_ammoCounter.color = Color.red;
+		}
+		else if(_Bcount <= 6){
+			_ammoCounter.color = Color.yellow;
+		}
+		else 
+			_ammoCounter.color = Color.green;
 	}
 }
