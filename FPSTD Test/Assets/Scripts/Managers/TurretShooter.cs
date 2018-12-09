@@ -8,12 +8,14 @@ public class TurretShooter : MonoBehaviour {
 	[SerializeField] private LayerMask _layer;
 	[Tooltip("Try to use the same as 'Range' in TurretMov")]
 	[SerializeField] private float _shootRange;
+	private AudioSource _gunSound;
 	private GameObject _bullet;
 	private WallClass _wall;
 	private float nextFire = 0.0f;
 
 	void Start(){
 		_wall = gameObject.GetComponentInParent<WallClass>();
+		_gunSound = GetComponent<AudioSource> ();
 	}
 	void Update(){
 		if (_wall.Placed == true) {
@@ -27,6 +29,7 @@ public class TurretShooter : MonoBehaviour {
 		}
 	}
 	private void Shoot(){
+		_gunSound.Play ();
 		_bullet = Instantiate (_bulletPrefab);
 		_bullet.transform.position = this.transform.position;
 		_bullet.transform.rotation = this.transform.rotation;
