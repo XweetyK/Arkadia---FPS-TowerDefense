@@ -7,9 +7,11 @@ public class EnemyWaveSpawner : MonoBehaviour {
 
 	[SerializeField] private float _enemyHeight=0.5f;
 	[SerializeField] private GameObject _enemyPrefab;
+	[SerializeField] private GameObject _tankPrefab;
 	[SerializeField] private Transform[] _spawnTarget;
 	[SerializeField] GameModeManager _manager;
-	[SerializeField] int [] _enemyWavesCant;
+	[SerializeField] int [] _commonWavesCant;
+	[SerializeField] int [] _tankWavesCant;
 	[SerializeField] float _spawnerDelay;
 	[SerializeField] bool _multiPath;
 	private GameObject[][] _enemyWave;
@@ -20,12 +22,19 @@ public class EnemyWaveSpawner : MonoBehaviour {
 	private int _rand;
 
 	void Start(){
-		_enemyWave = new GameObject[_enemyWavesCant.Length][];
-		for (int i = 0; i < _enemyWavesCant.Length; i++) {
-			_enemyWave [i] = new GameObject[_enemyWavesCant [i]];
-			for (int j = 0; j < _enemyWavesCant[i]; j++) {
-				_enemyWave [i] [j] = Instantiate (_enemyPrefab);
-				_enemyWave [i] [j].GetComponent<NavMeshAgent>().Warp(new Vector3 (0 + j * 2, _enemyHeight, 102+i*2));
+		_enemyWave = new GameObject[_commonWavesCant.Length][];
+		for (int i = 0; i < _commonWavesCant.Length; i++) {
+			_enemyWave [i] = new GameObject[(_commonWavesCant [i]+_tankWavesCant[i])];
+	
+			for (int j = 0; j < (_commonWavesCant [i]+_tankWavesCant[i]); j++) {
+				if (j < _commonWavesCant[i]) {
+					_enemyWave [i] [j] = Instantiate (_enemyPrefab);
+					_enemyWave [i] [j].GetComponent<NavMeshAgent> ().Warp (new Vector3 (0 + j * 2, _enemyHeight, 102 + i * 2));
+				}
+				if (j >= _commonWavesCant[i]) {
+					_enemyWave [i] [j] = Instantiate (_tankPrefab);
+					_enemyWave [i] [j].GetComponent<NavMeshAgent> ().Warp (new Vector3 (0 + j * 2, _enemyHeight, 102 + i * 2));
+				}
 			}
 		}
 	}
@@ -57,7 +66,7 @@ public class EnemyWaveSpawner : MonoBehaviour {
 	}
 	private void Spawner(){
 		if (_actualWave < _enemyWave.Length) {
-			if (_waveCant != _enemyWave [_actualWave].Length) {
+			if (_waveCant !=_enemyWave [_actualWave].Length) {
 				if (_multiPath) {
 					_enemyWave [_actualWave] [_waveCant].GetComponent<NavMeshAgent> ().Warp (_spawnTarget[_rand].position);
 				} else {

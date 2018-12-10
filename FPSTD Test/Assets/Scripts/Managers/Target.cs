@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Target : MonoBehaviour {
 	[SerializeField] private GameObject _fortress;
-	[SerializeField] private int _damage;
+	private int _damage;
 	[SerializeField] private GameModeManager _gmManager;
 	private Life _lifeManager;
 
@@ -18,6 +18,7 @@ public class Target : MonoBehaviour {
 		}
 	}
 	void OnTriggerEnter(Collider enemy){
+		_damage = enemy.GetComponent<EnemyWalker> ().Damage;
 		enemy.GetComponent<EnemyWalker> ().Destroyer ();
 		_lifeManager.LifeGetter -= _damage;
 	}

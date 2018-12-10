@@ -53,11 +53,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AssetsPack\Plugins\SimpleInput\Editor\AxisInputDrawer.cs" />
-     <Compile Include="Assets\AssetsPack\Plugins\SimpleInput\Editor\BaseInputDrawer.cs" />
-     <Compile Include="Assets\AssetsPack\Plugins\SimpleInput\Editor\ButtonInputDrawer.cs" />
-     <Compile Include="Assets\AssetsPack\Plugins\SimpleInput\Editor\KeyInputDrawer.cs" />
-     <Compile Include="Assets\AssetsPack\Plugins\SimpleInput\Editor\MouseButtonInputDrawer.cs" />
+     <Compile Include="Assets\AssetsPack\Input\SimpleInput\Editor\AxisInputDrawer.cs" />
+     <Compile Include="Assets\AssetsPack\Input\SimpleInput\Editor\BaseInputDrawer.cs" />
+     <Compile Include="Assets\AssetsPack\Input\SimpleInput\Editor\ButtonInputDrawer.cs" />
+     <Compile Include="Assets\AssetsPack\Input\SimpleInput\Editor\KeyInputDrawer.cs" />
+     <Compile Include="Assets\AssetsPack\Input\SimpleInput\Editor\MouseButtonInputDrawer.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/Diana/Desktop/Arkadia---FPS-TowerDefense/FPSTD Test/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>

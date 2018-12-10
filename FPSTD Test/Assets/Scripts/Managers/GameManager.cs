@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour {
 	[SerializeField] private Image _ENDGAME;
 	[SerializeField] Text _waveTextW;
 	[SerializeField] Text _waveTextB;
+	[SerializeField] int _thisLevel;
 
 	private bool _waveStart;
 	private bool _waveActive =false;
@@ -113,13 +114,17 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 	private void ChangeScene(){
-		switch (_gameModeManager.GameMode) {
-		case GameModeManager.GAMEMODE.GAMEWIN:
-			_scene.Win ();
-			break;
-		case GameModeManager.GAMEMODE.GAMELOSE:
-			_scene.Lose ();
-			break;
+		if (_thisLevel == 1) {
+			_scene.Level2 ();
+		}if (_thisLevel == 2) {
+			switch (_gameModeManager.GameMode) {
+			case GameModeManager.GAMEMODE.GAMEWIN:
+				_scene.Win ();
+				break;
+			case GameModeManager.GAMEMODE.GAMELOSE:
+				_scene.Lose ();
+				break;
+			}
 		}
 	}
 	private void TextChange(){

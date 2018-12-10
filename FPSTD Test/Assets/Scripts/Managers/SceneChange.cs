@@ -18,12 +18,19 @@ public class SceneChange : MonoBehaviour {
 		Cursor.visible = true;
 		SceneManager.LoadScene ("MainMenu");
 	}
-	public void Game(){
+	public void Level1(){
 		if (!_isAndroid) {
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;
 		}
-		SceneManager.LoadScene ("Game");
+		SceneManager.LoadScene ("Level 1");
+	}
+	public void Level2(){
+		if (!_isAndroid) {
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
+		}
+		SceneManager.LoadScene ("Level 2");
 	}
 	public void Lose(){
 		Cursor.lockState = CursorLockMode.None;

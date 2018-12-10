@@ -10,6 +10,7 @@ public class EnemyWalker : MonoBehaviour {
 	private Money _money;
 	[SerializeField] private float _destroyerDelay=0.5f;
 	[SerializeField] private int _moneyCant=50;
+	[SerializeField] private int _damage=10;
 	private Animator _animation;
 	private bool _alive;
 	private int _rand =0;
@@ -26,7 +27,6 @@ public class EnemyWalker : MonoBehaviour {
 	}
 	void Update(){
 		_rand = Random.Range (0, _target.Length) == 0 ? 0 : _target.Length-1;
-		Debug.Log (_rand);
 		checkHealth ();
 	}
 	void checkHealth(){
@@ -50,5 +50,8 @@ public class EnemyWalker : MonoBehaviour {
 	}
 	public bool Alive{
 		get{ return _alive; }
+	}
+	public int Damage{
+		get{ return _damage; }
 	}
 }

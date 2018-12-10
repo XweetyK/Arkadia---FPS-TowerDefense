@@ -1,31 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-<<<<<<< Updated upstream
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\HUDManager.cs">
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy\EnemyWaveSpawner.cs">
->>>>>>> Stashed changes
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\Target.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player\Movement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\WallClass.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\WallsManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemy\EnemyWalker.cs" Line="1" Column="1" />
-<<<<<<< Updated upstream
-      <File FileName="Assets\Scripts\Managers\GameModeManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\AssetsPack\Plugins\SimpleInput\Scripts\ButtonInputs\ButtonInputUI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\HUDManager.cs" Line="81" Column="1" />
-      <File FileName="Assets\Scripts\Gun\Gun.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Gun\Pistol.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player\EnemyShooter.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\TurretShooter.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player\WallShooter.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Managers\GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\Target.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\HealthBar.cs" Line="1" Column="1" />
-=======
-      <File FileName="Assets\Scripts\Enemy\EnemyWaveSpawner.cs" Line="64" Column="1" />
-      <File FileName="Assets\Scripts\UI\MapMovement.cs" Line="1" Column="1" />
->>>>>>> Stashed changes
+      <File FileName="Assets\Scripts\Managers\SceneChange.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Enemy\EnemyWalker.cs" Line="55" Column="24" />
+      <File FileName="Assets\Scripts\Enemy\EnemyWaveSpawner.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\Life.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Enemy\copy.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\GameModeManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\Target.cs" Line="21" Column="54" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
