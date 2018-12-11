@@ -49,16 +49,16 @@ public class Movement : MonoBehaviour {
 		case GameModeManager.GAMEMODE.WALLBUILDER:
 			transZ = InputManager.Instance.GetVerticalKeyAxis() * vel * Time.deltaTime;
 			transX = InputManager.Instance.GetHorizontalKeyAxis() * vel * Time.deltaTime;
-			rotX += InputManager.Instance.GetVerticalAxis() * spe * Time.deltaTime;
-			rotY += InputManager.Instance.GetHorizontalAxis() * spe * Time.deltaTime;
+			rotX += InputManager.Instance.GetVerticalAxis() * spe;
+			rotY += InputManager.Instance.GetHorizontalAxis() * spe;
 			rotX = Mathf.Clamp(rotX, -70f, 70f);
 			transform.GetChild (0).transform.localRotation =  Quaternion.Euler (-rotX, 0, 0);
 			transform.Translate (transX, 0, transZ);
 			transform.rotation = Quaternion.Euler(0, rotY, 0);
 			break;
 		case GameModeManager.GAMEMODE.DESTROYER:
-			rotX += InputManager.Instance.GetVerticalAxis() * spe * Time.deltaTime;
-			rotY = InputManager.Instance.GetHorizontalAxis() * spe * Time.deltaTime;
+			rotX += InputManager.Instance.GetVerticalAxis() * spe;
+			rotY = InputManager.Instance.GetHorizontalAxis() * spe;
 			rotX = Mathf.Clamp(rotX, -70f, 70f);
 			transform.GetChild (0).transform.localRotation =  Quaternion.Euler (-rotX - _gun.recoil, 0, 0);
 			transform.Rotate (0, rotY, 0);

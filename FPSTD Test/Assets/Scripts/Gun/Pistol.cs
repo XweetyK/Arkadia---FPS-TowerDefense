@@ -5,7 +5,11 @@ using UnityEngine;
 public class Pistol : Gun {
 
 	void Update(){
-		recoil *= Mathf.Min(50 * Time.deltaTime, 0.5f);
+		if (recoil > 0.0f) {
+			recoil -= Mathf.Min (100 * Time.deltaTime, 0.f);
+			if (recoil < 0)
+				recoil = 0;
+		}
 	}
 
 	public override void shoot(){

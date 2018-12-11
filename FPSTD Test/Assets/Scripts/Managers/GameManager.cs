@@ -115,7 +115,11 @@ public class GameManager : MonoBehaviour {
 	}
 	private void ChangeScene(){
 		if (_thisLevel == 1) {
-			_scene.Level2 ();
+			if (_gameModeManager.GameMode == GameModeManager.GAMEMODE.GAMEWIN) {
+				_scene.Level2 ();
+			} else {
+				_scene.Lose ();
+			}
 		}if (_thisLevel == 2) {
 			switch (_gameModeManager.GameMode) {
 			case GameModeManager.GAMEMODE.GAMEWIN:

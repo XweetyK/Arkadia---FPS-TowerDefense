@@ -43,13 +43,13 @@ public class SceneChange : MonoBehaviour {
 		_loadingScreen.SetActive (true);
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
-		SceneManager.LoadScene ("GameLose");
+		SceneManager.LoadScene ("GAMELOSE");
 	}
 	public void Win(){
 		_loadingScreen.SetActive (true);
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
-		SceneManager.LoadScene ("GameWin");
+		SceneManager.LoadScene ("GAMEWIN");
 	}
 	public void Quit(){
 		Application.Quit();
