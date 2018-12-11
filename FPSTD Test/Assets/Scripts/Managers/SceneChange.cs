@@ -6,14 +6,19 @@ using UnityEngine.SceneManagement;
 public class SceneChange : MonoBehaviour {
 
 	private bool _isAndroid;
+	[SerializeField] GameObject _loadingScreen;
+
 	void Awake(){
 		#if UNITY_ANDROID
 		_isAndroid=true;
 		#else
 		_isAndroid=false;
 		#endif
+
+		_loadingScreen.SetActive(false);
 	}
 	public void MainMenu(){
+		_loadingScreen.SetActive (true);
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
 		SceneManager.LoadScene ("MainMenu");
@@ -23,6 +28,7 @@ public class SceneChange : MonoBehaviour {
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;
 		}
+		_loadingScreen.SetActive (true);
 		SceneManager.LoadScene ("Level 1");
 	}
 	public void Level2(){
@@ -30,14 +36,17 @@ public class SceneChange : MonoBehaviour {
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;
 		}
+		_loadingScreen.SetActive (true);
 		SceneManager.LoadScene ("Level 2");
 	}
 	public void Lose(){
+		_loadingScreen.SetActive (true);
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
 		SceneManager.LoadScene ("GameLose");
 	}
 	public void Win(){
+		_loadingScreen.SetActive (true);
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
 		SceneManager.LoadScene ("GameWin");
