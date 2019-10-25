@@ -6,7 +6,7 @@ public class Pistol : Gun {
 
 	void Update(){
 		if (recoil > 0.0f) {
-			recoil -= Mathf.Min (100 * Time.deltaTime, 0.f);
+			recoil -= Mathf.Min (100 * Time.deltaTime, 0.0f);
 			if (recoil < 0)
 				recoil = 0;
 		}

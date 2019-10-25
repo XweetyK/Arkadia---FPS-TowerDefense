@@ -7,6 +7,7 @@ public class SceneChange : MonoBehaviour {
 
 	private bool _isAndroid;
 	[SerializeField] GameObject _loadingScreen;
+    [SerializeField] GameObject _levelsScreen;
 
 	void Awake(){
 		#if UNITY_ANDROID
@@ -54,4 +55,7 @@ public class SceneChange : MonoBehaviour {
 	public void Quit(){
 		Application.Quit();
 	}
+    public void LevelsBtn() {
+        _levelsScreen.SetActive(!_levelsScreen.active);
+    }
 }
